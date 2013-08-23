@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1187.39">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 14.0px Times; color: #353735; background-color: #eef4f8}
+    p.p2 {margin: 0.0px 0.0px 6.0px 8.0px; line-height: 21.0px; font: 12.0px STSong}
+    li.li3 {margin: 0.0px 0.0px 6.0px 0.0px; line-height: 21.0px; font: 12.0px STSong}
+    li.li4 {margin: 0.0px 0.0px 6.0px 0.0px; line-height: 21.0px; font: 12.0px Times}
+    li.li5 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 12.0px Times}
+    li.li6 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px 'Courier New'; color: #098021; background-color: #fafafa}
+    li.li7 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 12.0px STSong}
+    span.s1 {font: 14.0px STSong}
+    span.s2 {font: 12.0px Times}
+    span.s3 {font: 12.0px STSong}
+    span.s4 {font: 12.0px 'Courier New'; color: #098021; background-color: #fafafa}
+    span.s5 {font: 12.0px 'Heiti SC Light'}
+    ul.ul1 {list-style-type: disc}
+  </style>
+</head>
+<body>
+<p class="p1"><b>2013</b><span class="s1">年</span><b>8</b><span class="s1">月</span><b>8</b><span class="s1">日</span><b> </b><span class="s1">百度地图</span><b>iOS SDK : V2.0.2</b><span class="s1">矢量版</span><b>SDK</b><span class="s1">上线</span></p>
+<p class="p2">新增：</p>
+<ul class="ul1">
+  <li class="li3"><span class="s2"><b></b></span>全新的<span class="s2"><b>key</b></span>验证体系，为您提供更加安全的<span class="s2"><b>key</b></span></li>
+  <li class="li4"><b></b><span class="s3">增加短串分享接口</span><br>
+<span class="s3">在</span>BMKType<span class="s3">中新增数据结构：</span>BMK_SHARE_URL_TYPE<span class="s3">（分享串数据类型）</span><br>
+<span class="s3">在</span>BMKSearch<span class="s3">中新增接口</span>-(BOOL)poiDetailShareUrl:; <span class="s3">发起</span>poi<span class="s3">短串搜索</span><br>
+<span class="s3">在</span>BMKSearch<span class="s3">中新增接口</span>-(BOOL)reverseGeoShareUrl: poiName: poiAddress:; <span class="s3">发起反</span>geo<span class="s3">短串搜索</span><br>
+<span class="s3">在</span>BMKSearchDelegate<span class="s3">中新增接口</span>-(void)onGetShareUrl: withType: errorCode:; <span class="s3">返回短串分享</span>url</li>
+  <li class="li4"><b></b><span class="s3">比例尺控件</span><br>
+<span class="s3">在</span>BMKMapView<span class="s3">中新增属性</span>@property (nonatomic) BOOL showMapScaleBar;<span class="s3">比例尺是否显示</span><br>
+<span class="s3">在</span>BMKMapView<span class="s3">中新增属性</span>@property (nonatomic) CGPoint mapScaleBarPosition;<span class="s3">比例尺显示位置</span></li>
+  <li class="li4"><b></b><span class="s3">定位罗盘效果</span><br>
+<span class="s3">在</span>BMKMapView<span class="s3">中新增数据结构：</span>BMKUserTrackingMode<span class="s3">（定位模式）</span><br>
+<span class="s3">在</span>BMKMapView<span class="s3">中新增属性</span>@property (nonatomic) BMKUserTrackingMode userTrackingMode; <span class="s3">设定定位模式</span></li>
+  <li class="li4"><b></b><span class="s3">驾车避让拥堵策略</span><br>
+<span class="s3">在</span>BMKSearch<span class="s3">中新增驾车检索策略常量</span>BMKCarTrafficFIRST = 60 <span class="s3">（驾车检索策略常量：躲避拥堵）</span></li>
+  <li class="li4"><b></b><span class="s3">路径查询增加时间结果</span><br>
+<span class="s3">在</span>BMKSearch<span class="s3">中新增类：</span>BMKTime<span class="s3">，此类代表一个时间段，每个属性都是一个时间段</span><br>
+<span class="s3">在</span>BMKTransitRoutePlan<span class="s3">中新增属性</span>@property (nonatomic, retain) BMKTime* time;<span class="s3">方案所用时间</span><br>
+<span class="s3">在</span>BMKRoutePlan<span class="s3">中新增属性</span>@property (nonatomic, retain) BMKTime* time;<span class="s3">方案预计的行驶时间</span></li>
+</ul>
+<p class="p2">优化：</p>
+<ul class="ul1">
+  <li class="li4"><b>BMKMapView</b><span class="s3">中</span><br>
+- (void)removeAnnotations:;<span class="s3">对移除一组标注进行了优化</span></li>
+</ul>
+<p class="p2">修复：</p>
+<ul class="ul1">
+  <li class="li3"><span class="s2"><b></b></span>修复离线地图中支持离线包的城市列表中省份下无子城市的问题</li>
+  <li class="li3"><span class="s2"><b></b></span>修复前台数据请求后退至后台<span class="s2"><b>OpenGL</b></span>继续渲染，应用<span class="s2"><b>Crash</b></span>的问题</li>
+</ul>
+<p class="p1"><b>2013</b><span class="s1">年</span><b>6</b><span class="s1">月</span><b>27</b><span class="s1">日</span><b> </b><span class="s1">百度地图</span><b>iOS SDK : V2.0.1 </b><span class="s1">矢量版</span><b>SDK</b><span class="s1">上线</span></p>
+<p class="p2">新增：</p>
+<ul class="ul1">
+  <li class="li4"><b>BMKMapView</b><span class="s3">增加事件监听</span><br>
+BMKMapViewDelegate<span class="s3">中</span>- mapView: onClickedMapBlank:<span class="s3">方法监听地图单击事件</span><br>
+BMKMapViewDelegate<span class="s3">中</span>- mapView: onDoubleClick:<span class="s3">方法监听地图双击事件</span><br>
+BMKMapViewDelegate<span class="s3">中</span>- mapView: onLongClick:<span class="s3">方法监听地图长按事件</span></li>
+  <li class="li4"><b></b><span class="s3">地图截图功能</span><br>
+BMKMapView<span class="s3">中</span> -(UIImage*) takeSnapshot;</li>
+  <li class="li4"><b></b><span class="s3">路径规划增加途经点</span><br>
+BMKSearch<span class="s3">中</span>- (BOOL)drivingSearch: startNode: endCity: endNode: throughWayPoints:</li>
+  <li class="li4"><b>suggestion</b><span class="s3">搜索支持按城市搜索</span></li>
+</ul>
+<p class="p2">优化：</p>
+<ul class="ul1">
+  <li class="li4"><b></b><span class="s3">全面支持</span><b>iPad</b></li>
+  <li class="li4"><b></b><span class="s3">添加海量</span><b>annotation</b><span class="s3">逻辑</span></li>
+  <li class="li4"><b>BMKOfflineMap</b><span class="s3">中：</span><br>
+- (BOOL)pasue:(int)cityID;<br>
+<span class="s3">改为</span><br>
+- (BOOL)pause:(int)cityID</li>
+  <li class="li4"><b>BMKMapView</b><span class="s3">中：</span><br>
+@property (nonatomic) CGPoint compassPositon;<br>
+<span class="s3">改为</span><br>
+@property (nonatomic) CGPoint compassPosition;</li>
+  <li class="li4"><b>BMKRouteAddrResult</b><span class="s3">结构添加属性：</span><br>
+@ property wayPointPoiList;<br>
+@ property wayPointCityList;</li>
+  <li class="li4"><b>BMKPlanNode</b><span class="s3">中添加属性：</span><br>
+@ property cityName; <span class="s3">添加城市属性</span></li>
+  <li class="li4"><b>BMKSuggestionResult</b><span class="s3">结构添加属性：</span><br>
+@ property districtList; <span class="s3">返回区域列表</span><br>
+BMKPlanResult<span class="s3">中添加属性</span><br>
+@property wayNodes; <span class="s3">途经点数据</span></li>
+</ul>
+<p class="p2">修复：</p>
+<ul class="ul1">
+  <li class="li4"><b></b><span class="s3">修复与第三方类库冲突的问题</span><br>
+<span class="s3">修复与</span>gzip<span class="s3">、</span>Reachability<span class="s3">、</span>png<span class="s3">、</span>jpeg<span class="s3">、</span>json<span class="s3">、</span>xml<span class="s3">、</span>sqlite<span class="s3">等第三方类库冲突问题</span></li>
+</ul>
+<p class="p1"><b>2013</b><span class="s1">年</span><b>5</b><span class="s1">月</span><b>30</b><span class="s1">日百度地图</span><b>iOS SDK : V2.0.0 </b><span class="s1">矢量版</span><b>SDK</b><span class="s1">上线</span></p>
+<p class="p2">新增：</p>
+<ul class="ul1">
+  <li class="li4"><b></b><span class="s3">全新的</span><b>3D</b><span class="s3">矢量地图渲染</span><br>
+BMKMapView<span class="s3">设定地图旋转俯视角度：</span>rotation<span class="s3">、</span>overlooking<br>
+BMKMapView<span class="s3">设定指南针显示位置：</span>compassPositon<br>
+BMKMapView<span class="s3">控制生命周期：</span>viewWillAppear<span class="s3">、</span> viewWillDisappear<br>
+<span class="s3">地图标注可点，</span>BMKMapViewDelegate<span class="s3">新增回调接口</span>onClickedMapPoi<br>
+BMKAnnotationView<span class="s3">设置</span>annotation<span class="s3">是否启用</span>3D<span class="s3">模式：</span>enabled3D<br>
+</li>
+  <li class="li4"><b>overlay</b><span class="s3">绘制方式改变，采用</span><b>OpenGL</b><span class="s3">绘制：</span><br>
+BMKOverlayView<span class="s3">使用</span>OpenGL<span class="s3">渲染接口：</span>glRender<span class="s3">子类重载此函数实现</span>gl<span class="s3">绘制</span><br>
+<span class="s3">基本</span>OpenGL<span class="s3">线绘制：</span>renderLinesWithPoints<br>
+<span class="s3">基本</span>OpenGL<span class="s3">面绘制：</span>renderRegionWithPoints</li>
+  <li class="li4"><b></b><span class="s3">全新的矢量离线地图数据：</span><br>
+BMKOfflineMap<span class="s3">下载离线地图：</span>start<br>
+BMKOfflineMap<span class="s3">更新离线地图：</span>update<br>
+BMKOfflineMap<span class="s3">暂停下载或更新：</span>pasue<br>
+<span class="s3">获得热点城市列表：</span>getHotCityList<br>
+<span class="s3">获得支持离线数据的城市：</span>getOfflineCityList<br>
+<span class="s3">根据城市名查询城市信息：</span>searchCity</li>
+</ul>
+<p class="p2">更新：</p>
+<ul class="ul1">
+  <li class="li5">BMKMapView<span class="s3">的缩放级别</span>zoomLevel<span class="s3">更新为</span>float<span class="s3">型，实现无级缩放</span></li>
+  <li class="li3"><span class="s2"></span>更新地图类型枚举：<span class="s2"><br>
+</span><span class="s4">enum {</span></li>
+  <li class="li6"><span class="Apple-converted-space">    </span>BMKMapTypeStandard <span class="Apple-converted-space">  </span>= 1, <span class="Apple-converted-space">              </span>///&lt; <span class="s5">标准地图</span> <span class="Apple-converted-space">   </span></li>
+  <li class="li6"><span class="Apple-converted-space">    </span>BMKMapTypeTrafficOn<span class="Apple-converted-space">  </span>= 2, <span class="Apple-converted-space">              </span>///&lt; <span class="s5">实时路况</span><span class="Apple-converted-space"> </span></li>
+  <li class="li6"><span class="Apple-converted-space">    </span>BMKMapTypeSatellite<span class="Apple-converted-space">  </span>= 4, <span class="Apple-converted-space">              </span>///&lt; <span class="s5">卫星地图</span></li>
+  <li class="li6"><span class="Apple-converted-space">    </span>BMKMapTypeTrafficAndSatellite<span class="Apple-converted-space">  </span>= 8, <span class="Apple-converted-space">    </span>///&lt; <span class="s5">同时打开实时路况和卫星地图</span></li>
+  <li class="li6">};</li>
+  <li class="li5"></li>
+</ul>
+<p class="p1"><b>2013</b><span class="s1">年</span><b>5</b><span class="s1">月</span><b>10</b><span class="s1">日百度地图</span><b>iOS SDK : V1.2.3</b></p>
+<p class="p2">新增：</p>
+<ul class="ul1">
+  <li class="li7"><span class="s2"></span>支持城际（城市之间）实时路况<span class="s2">(6</span>级<span class="s2">~9</span>级时显示<span class="s2">)</span></li>
+</ul>
+<p class="p2">修复：</p>
+<ul class="ul1">
+  <li class="li7"><span class="s2"></span>优化网络模块，性能更加流畅</li>
+  <li class="li5"><span class="s3">解决必须使用</span>-all_load<span class="s3">才可以引入库的</span>bug</li>
+  <li class="li7"><span class="s2"></span>废弃使用获取设备标识符的私有<span class="s2">API</span></li>
+</ul>
+<p class="p1"><b>2012</b><span class="s1">年</span><b>10</b><span class="s1">月</span><b>25</b><span class="s1">日百度地图</span><b>iOS SDK : V1.2.2</b></p>
+<p class="p2">更新：</p>
+<ul class="ul1">
+  <li class="li5"><span class="s3">更新支持</span>armv7s<span class="s3">，全面适配</span>iOS6<span class="s3">和</span>iPhone5</li>
+</ul>
+<p class="p2">修复：</p>
+<ul class="ul1">
+  <li class="li7"><span class="s2"></span>修改在无网络情况下，验证应用程序名称的时候<span class="s2">crash</span>问题</li>
+  <li class="li7"><span class="s2"></span>中文应用名无法运行的问题</li>
+  <li class="li5">viewdidload<span class="s3">中打开实时路况无显示的问题</span></li>
+  <li class="li7"><span class="s2"></span>两个<span class="s2">mapview</span>情况下，释放其中一个，另外一个无法使用的问题</li>
+</ul>
+<p class="p1"><b>2012</b><span class="s1">年</span><b>06</b><span class="s1">月</span><b>29</b><span class="s1">日百度地图</span><b>iOS SDK : V1.2.1</b></p>
+<p class="p2">新增：</p>
+<ul class="ul1">
+  <li class="li7"><span class="s2"></span>添加公交详情搜索功能</li>
+</ul>
+<p class="p2">修复：</p>
+<ul class="ul1">
+  <li class="li7"><span class="s2"></span>定位圈范围内不能拖动地图的<span class="s2">bug</span></li>
+</ul>
+<p class="p1"><b>2012</b><span class="s1">年</span><b>03</b><span class="s1">月</span><b>29</b><span class="s1">日百度地图</span><b>iOS SDK</b><span class="s1">：</span><b> V1.2.0</b></p>
+<p class="p2">新增：</p>
+<ul class="ul1">
+  <li class="li7"><span class="s2"></span>支持卫星图功能</li>
+</ul>
+<p class="p2">更新：</p>
+<ul class="ul1">
+  <li class="li5"><span class="s3">更新</span>baidu<span class="s3">地图</span>Logo</li>
+</ul>
+<p class="p1"><b>2011</b><span class="s1">年</span><b>12</b><span class="s1">月</span><b>2</b><span class="s1">日百度地图</span><b>iOS SDK</b><span class="s1">：</span><b> V1.1.1</b></p>
+<p class="p2">新增：</p>
+<ul class="ul1">
+  <li class="li5"><span class="s3">增加</span>suggestionSearch<span class="s3">接口</span></li>
+  <li class="li5"><span class="s3">支持动态更改</span>annotation title</li>
+</ul>
+<p class="p2">修复：</p>
+<ul class="ul1">
+  <li class="li7"><span class="s2">fix</span>导入离线地图时小内存泄露的<span class="s2">bug</span></li>
+</ul>
+<p class="p1"><b>2011</b><span class="s1">年</span><b>11</b><span class="s1">月</span><b>9</b><span class="s1">日百度地图</span><b>iOS SDK </b><span class="s1">：</span><b>V1.1</b></p>
+<p class="p2">新增：</p>
+<ul class="ul1">
+  <li class="li7"><span class="s2"></span>支持导入离线地图</li>
+</ul>
+<p class="p2">修复：</p>
+<ul class="ul1">
+  <li class="li5"><span class="s3">搜索时产生网络错误回调返回在</span>BMKSearchDelegate<span class="s3">中</span></li>
+  <li class="li5"><span class="s3">修复</span>MapView release<span class="s3">时崩溃的</span>bug</li>
+  <li class="li7"><span class="s2"></span>修复与某些<span class="s2">XML</span>解析库冲突的问题</li>
+</ul>
+<p class="p1"><b>2011</b><span class="s1">年</span><b>8</b><span class="s1">月</span><b>19</b><span class="s1">日百度地图</span><b>iOS SDK</b><span class="s1">：</span><b> V1.0.0</b></p>
+<p class="p2">产品上线：</p>
+<ul class="ul1">
+  <li class="li7"><span class="s2"></span>地图浏览，操作，多点触摸，动画</li>
+  <li class="li7"><span class="s2"></span>标注，覆盖物</li>
+  <li class="li5">POI<span class="s3">、路线搜索</span></li>
+  <li class="li7"><span class="s2"></span>地理编码、反地理编码</li>
+  <li class="li7"><span class="s2"></span>定位图层</li>
+</ul>
+</body>
+</html>
