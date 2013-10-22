@@ -7,7 +7,7 @@
  */
 
 #import <UIKit/UIKit.h>
-
+#import "BMKActionPaopaoView.h"
 
 #if __IPHONE_3_2 <= __IPHONE_OS_VERSION_MAX_ALLOWED
 
@@ -49,7 +49,7 @@ typedef NSUInteger BMKAnnotationViewDragState;
 ///复用标志
 @property (nonatomic, readonly) NSString *reuseIdentifier;
 
-@property (nonatomic, retain)UIView* paopaoView;
+@property (nonatomic, retain)BMKActionPaopaoView* paopaoView;
 
 /**
  *当view从reuse队列里取出时被调用

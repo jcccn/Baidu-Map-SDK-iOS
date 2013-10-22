@@ -21,6 +21,8 @@
 #import "BMKOverlayView.h"
 #import "BMKUserLocation.h"
 #import "UIKit/UIKit.h"
+#import "BMKMapStatus.h"
+#import "BMKLocationViewDisplayParam.h"
 
 @protocol BMKMapViewDelegate;
 
@@ -97,7 +99,6 @@ typedef enum {
 
 /// 返回定位坐标点是否在当前地图可视区域内
 @property (nonatomic, readonly, getter=isUserLocationVisible) BOOL userLocationVisible;
-
 
 /**
  *当mapview即将被显式的时候调用，恢复之前存储的mapview状态。
@@ -220,7 +221,6 @@ typedef enum {
 ///设定地图View能否支持用户移动地图
 @property(nonatomic, getter=isScrollEnabled) BOOL scrollEnabled;
 
-
 /**
  *向地图窗口添加标注，需要实现BMKMapViewDelegate的-mapView:viewForAnnotation:函数来生成标注对应的View
  *@param annotation 要添加的标注
@@ -262,6 +262,8 @@ typedef enum {
  */
 - (BMKAnnotationView *)dequeueReusableAnnotationViewWithIdentifier:(NSString *)identifier;
 
+//设定是否总让选中的annotaion置于最前面
+@property (nonatomic, assign) BOOL isSelectedAnnotationViewFront;
 /**
  *选中指定的标注，本版暂不支持animate效果
  *@param annotation 指定的标注
@@ -276,9 +278,50 @@ typedef enum {
  */
 - (void)deselectAnnotation:(id <BMKAnnotation>)annotation animated:(BOOL)animated;
 
+///设定地图View能否支持以手势中心点为轴进行旋转和缩放
+@property(nonatomic, getter=isChangeWithTouchPointCenterEnabled) BOOL ChangeWithTouchPointCenterEnabled;
+/**
+ * 设置地图中心点在地图中的屏幕坐标位置
+ * @param ptInScreen 要设定的地图中心点位置，为屏幕坐标，设置的中心点不能超过屏幕范围，否则无效
+ */
+- (void)setMapCenterToScreenPt:(CGPoint)ptInScreen;
+
+/**
+ * 获取地图状态
+  *@return 返回地图状态信息
+ */
+- (BMKMapStatus*)getMapStatus;
+
+/**
+ *	设置地图状态
+ *	@param	[in]	mapStatus	地图状态信息
+ */
+- (void)setMapStatus:(BMKMapStatus*)mapStatus;
+
+/**
+ *	设置地图状态
+ *	@param	[in]	mapStatus	地图状态信息
+ *	@param	[in]	bAnimation	是否需要动画效果，true:需要做动画
+ */
+- (void)setMapStatus:(BMKMapStatus*)mapStatus withAnimation:(BOOL)bAnimation;
+
+/**
+ *	设置地图状态
+ *	@param	[in]	mapStatus	地图状态信息
+ *	@param	[in]	bAnimation	是否需要动画效果，true:需要做动画
+ *	@param	[in]	ulDuration	指定动画时间，单位：ms
+ */
+- (void)setMapStatus:(BMKMapStatus*)mapStatus withAnimation:(BOOL)bAnimation withAnimationTime:(int)ulDuration;
+
+/**
+ *动态定制我的位置样式
+ *	@param	[in]	locationViewDisplayParam	样式参数
+ */
+- (void)updateLocationViewWithParam:(BMKLocationViewDisplayParam*)locationViewDisplayParam;
+
 @end
 
-
+///地图View类(和Overlay操作相关的接口)
 @interface BMKMapView (OverlaysAPI)
 
 /**
@@ -478,6 +521,13 @@ typedef enum {
  *@param error 错误号，参考CLError.h中定义的错误号
  */
 - (void)mapView:(BMKMapView *)mapView didFailToLocateUserWithError:(NSError *)error;
+
+/**
+ *地图状态改变完成后会调用此接口
+ *@param mapview 地图View
+ */
+- (void)mapStatusDidChanged:(BMKMapView *)mapView;
+
 @end
 
 

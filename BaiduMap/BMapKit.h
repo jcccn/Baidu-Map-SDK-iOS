@@ -29,10 +29,15 @@
 #import "BMKPolygonView.h"
 #import "BMKPolylineView.h"
 #import "BMKCircleView.h"
+#import "BMKGroundOverlay.h"
+#import "BMKGroundOverlayView.h"
 //
 #import "BMKSearch.h"
 #import "BMKPoiSearchType.h"
 #import "BMKRouteSearchType.h"
 #import "BMKGeocodeType.h"
-
+#import "BMKCloudSearch.h"
+#import "BMKCloudSearch.h"
+#import "BMKCloudSearchInfo.h"
+#import "BMKUserLocation.h"
 #import "BMKVersion.h"

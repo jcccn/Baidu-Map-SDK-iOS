@@ -137,6 +137,59 @@
  修复：
  1）修复离线地图——支持离线包的城市列表中省份下无子城市的问题
  2）修复前台数据请求后退至后台opengl继续渲染，应用Crash的问题
+ 
+ --------------------
+ v2.1.0
+ 新增：
+ 1.全面接入LBS.云V2.0，全面开放LBS.云检索能力
+ 1)在BMKCloudSearchInfo中新增类BMKBaseCloudSearchInfo，BMKCloudSearchInfo，BMKCloudLocalSearchInfo，BMKCloudNearbySearchInfo，BMKCloudBoundSearchInfo，BMKCloudDetailSearchInfo来存储云检索参数
+ 2)在BMKCloudPOIList中新增类BMKCloudPOIList来存储云检索结果
+ 3)在BMKCloudSearch中新增数据结构：BMKCloudSearchType（云检索类型）
+ 4)在BMKCloudSearch中新增接口- (BOOL)localSearchWithSearchInfo:;发起本地云检索
+ 5)在BMKCloudSearch中新增接口- (BOOL) nearbySearchWithSearchInfo:;发起周边云检索
+ 6)在BMKCloudSearch中新增接口- (BOOL) boundSearchWithSearchInfo:;发起矩形云检索
+ 7)在BMKCloudSearch中新增接口- (BOOL) detailSearchWithSearchInfo:;发起详情云检索
+ 8)在BMKCloudSearch中新增接口- (void)onGetCloudPoiResult: searchType: errorCode:;返回云检索列表结果
+ 9)在BMKCloudSearch中新增接口- (void) onGetCloudPoiDetailResult: searchType: errorCode:;返回云检索详情结果
+ 2.增加图片图层BMKGroundOverlay、BMKGroundOverlayView
+ 1)在BMKGroundOverlay中新增属性@property (nonatomic,assign) CLLocationCoordinate2D pt;两种绘制GroundOverlay的方式之一：绘制的位置地理坐标，与anchor配对使用
+ 2)在BMKGroundOverlay中新增属性@property (nonatomic,assign) CGPoint anchor;用位置绘制时图片的锚点，图片左上角为(0.0f,0.0f),向右向下为正
+ 3)在BMKGroundOverlay中新增属性@property (nonatomic,assign) BMKCoordinateBounds bound;两种绘制GroundOverlay的方式之二：绘制的地理区域范围，图片在此区域内合理缩放
+ 4)在BMKGroundOverlay中新增属性@property(nonatomic, strong) UIImage *icon;绘制图片
+ 5)在BMKGroundOverlay中新增接口+(BMKGroundOverlay*)groundOverlayWithPosition:zoomLevel:anchor:icon:;根据指定经纬度坐标生成一个groundOverlay
+ 6)在BMKGroundOverlay中新增接口+(BMKGroundOverlay*) groundOverlayWithBounds:icon:;根据指定区域生成一个groundOverlay
+ 3.增加自定义泡泡
+ 1)在BMKActionPaopaoView中新增接口- (id)initWithCustomView:(UIView*)customView;泡泡显示View自定义
+ 4.增加地图中心点映射屏幕点
+ 1)在BMKMapView中新增接口- (void)setMapCenterToScreenPt:;设置地图中心点在地图中的屏幕坐标位置
+ 5.增加以手势触摸点中心为基准旋转缩放底图功能和控制开关
+ 1)在BMKMapView中新增属性@property(nonatomic, getter=isChangeWithTouchPointCenterEnabled) BOOL ChangeWithTouchPointCenterEnabled;设定地图View能否支持以手势中心点为轴进行旋转和缩放（默认以屏幕中心点为旋转和缩放中心）
+ 6.增加同时改变地图俯角，旋转角度，缩放比例，中心点接口
+ 1)新增类BMKMapStatus来表示地图状态参数
+ 2)在BMKMapView中新增接口- (void)setMapStatus:;设置地图状态
+ 3)在BMKMapView中新增接口- (void)setMapStatus: withAnimation:;设置地图状态（指定是否需要动画效果）
+ 4)在BMKMapView中新增接口- (void)setMapStatus: withAnimation: withAnimationTime:;设置地图状态（指定是否需要动画效果＋指定动画时间）
+ 5)在BMKMapView中新增接口- (BMKMapStatus*)getMapStatus;获取地图状态
+ 7.增加地图状态改变实时通知
+ 1)在BMKMapView中新增接口- (void)mapStatusDidChanged:;地图状态改变完成后会调用此接口
+ 
+ 优化：
+ 1.点击Annotation置顶
+ 1)在BMKMapView中新增属性@property (nonatomic, assign) BOOL isSelectedAnnotationViewFront;设定是否总让选中的annotaion置于最前面
+ 2.定位脱离MapView
+ 1)在BMKUserLocation中新增接口-(void)startUserLocationService;打开定位服务
+ 2)在BMKUserLocation中新增接口-(void)stopUserLocationService;关闭定位服务
+ 3)在BMKUserLocation中新增接口- (void)viewDidGetLocatingUser:;开启定位后，会自动调用此接口返回当前位置的经纬度
+ 3.定位图层样式自定义灵活性优化
+ 1)新增类BMKLocationViewDisplayParam来存储定位图层自定义参数
+ 2)在BMKMapView中新增接口- (void)updateLocationViewWithParam:;动态定制定位图层样式
+ 
+ 修复：
+ 1)修复点击annotation回调长按监听接口- (void)mapview: onLongClick:的问题
+ 2)修复TransitRoutePlan中Content属性为空的问题
+ 3)修复缩放底图，接口- (void)mapView: regionDidChangeAnimated:不回调的问题
+ 4)修复从其他页面返回原页面泡泡被压盖的问题
+ 5)解决WiFi无网络信号时首次加载卡屏的问题
  *********************/
 
 
@@ -146,5 +199,5 @@
  */
 UIKIT_STATIC_INLINE NSString* BMKGetMapApiVersion()
 {
-	return @"2.0.2";
+	return @"2.1.0";
 }

@@ -55,7 +55,7 @@
 @property (nonatomic) int serversize;
 ///下载比率，100为下载完成
 @property (nonatomic) int ratio;
-///下载状态, 1:正在下载　2:等待下载　3:已暂停　4:完成
+///下载状态, -1:未定义 1:正在下载　2:等待下载　3:已暂停　4:完成 5:校验失败 6:网络异常 7:读写异常 8:Wifi网络异常 9:未完成的离线包有更新包 10:已完成的离线包有更新包 11:没有完全下载完成的省份 12:该省份的所有城市都已经下载完成 13:该省份的部分城市需要更新
 @property (nonatomic) int status;
 ///更新状态
 @property (nonatomic) BOOL update;

@@ -18,6 +18,12 @@ typedef struct {
 
 ///表示一个经纬度区域
 typedef struct {
+    CLLocationCoordinate2D northEast;	///< 东北角点经纬度坐标
+    CLLocationCoordinate2D southWest;	///< 西南角点经纬度坐标
+} BMKCoordinateBounds;
+
+///表示一个经纬度区域
+typedef struct {
 	CLLocationCoordinate2D center;	///< 中心点经纬度坐标
 	BMKCoordinateSpan span;		///< 经纬度范围
 } BMKCoordinateRegion;
@@ -420,4 +426,4 @@ UIKIT_EXTERN NSDictionary* BMKBaiduCoorForGcj(CLLocationCoordinate2D coorGcj);
 UIKIT_EXTERN CLLocationCoordinate2D BMKCoorDictionaryDecode(NSDictionary* dictionary);
 
 
-
+//UIKIT_EXTERN CLLocationCoordinate2D BMKCoordinateForLocation();
