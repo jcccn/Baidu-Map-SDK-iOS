@@ -30,6 +30,18 @@ enum BMKErrorCode {
 	BMKErrorPermissionCheckFailure = 300,	///< 百度地图API授权Key验证失败
 	BMKErrorParse = 310		///< 数据解析失败
 };
+//key验证结果状态码
+enum BMKPermissionCheckResultCode {
+    E_PERMISSIONCHECK_OK = 0,	// 授权验证通过
+	E_PERMISSIONCHECK_KEY_ERROR = -1,	// Key格式错误，无效Key
+	E_PERMISSIONCHECK_PV_LIMITED = -2,	//该应用已到达最大日访问量
+	E_PERMISSIONCHECK_KEY_LOCKED = -3,	//该Key被封禁
+	E_PERMISSIONCHECK_SHOULD_PAY = -4,	//需要续费使用
+	E_PERMISSIONCHECK_NONE = 1,	// 尚未进行验证
+	E_PERMISSIONCHECK_CHECHING = 2,	// 正在验证⋯⋯
+	E_PERMISSIONCHECK_SERVER_ERROR = 3,	// 服务端错误
+	E_PERMISSIONCHECK_NETWORK_ERROR = 4,	// 服务端错日误
+};
 
 typedef enum
 {

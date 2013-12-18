@@ -6,7 +6,13 @@
  *
  */
 #import <UIKit/UIKit.h>
-
+enum EN_PERMISSION_STATUS
+{
+	E_PERMISSION_OK = 0,	// 授权验证通过
+	E_PERMISSION_SERVER_ERROR = -200, //服务端数据错误，无法解析服务端返回数据
+	E_PERMISSION_NETWORK_ERROR = -300, //无法建立与服务端的连接
+    
+};
 @protocol BMKGeneralDelegate;
 
 ///主引擎类

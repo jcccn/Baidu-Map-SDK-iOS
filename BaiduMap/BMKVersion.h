@@ -109,11 +109,11 @@
  1）在BMKType中新增数据结构：BMK_SHARE_URL_TYPE（分享串数据类型）
  2）在BMKSearch中新增接口-(BOOL)poiDetailShareUrl:(NSString*) uid; 发起poi短串搜索
  3）在BMKSearch中新增接口-(BOOL)reverseGeoShareUrl:(CLLocationCoordinate2D)coor
-                              poiName:(NSString*)name
-                              poiAddress:(NSString*)address; 发起反geo短串搜索
+ poiName:(NSString*)name
+ poiAddress:(NSString*)address; 发起反geo短串搜索
  4）在BMKSearchDelegate中新增接口-(void)onGetShareUrl:(NSString*) url
-                                      withType:(BMK_SHARE_URL_TYPE) urlType
-                                      errorCode:(int)error; 返回短串分享url
+ withType:(BMK_SHARE_URL_TYPE) urlType
+ errorCode:(int)error; 返回短串分享url
  3.比例尺控件
  1）在BMKMapview中新增属性@property (nonatomic) BOOL showMapScaleBar;比例尺是否显示
  2）在BMKMapview中新增属性@property (nonatomic) CGPoint mapScaleBarPosition;比例尺显示位置
@@ -130,7 +130,7 @@
  2）在BMKTransitRoutePlan中新增属性@property (nonatomic) float price; 白天打车估价，单位(元)
  3）在BMKTransitRoutePlan中新增属性@property (nonatomic, retain) BMKTime* time; 方案所用时间
  4）在BMKRoutePlan中新增属性@property (nonatomic, retain) BMKTime* time; 方案预计的行驶时间
-  
+ 
  优化：
  1）对在BMKMapview中的接口- (void)removeAnnotations:(NSArray *)annotations;（移除一组标注）进行了优化
  
@@ -190,6 +190,46 @@
  3)修复缩放底图，接口- (void)mapView: regionDidChangeAnimated:不回调的问题
  4)修复从其他页面返回原页面泡泡被压盖的问题
  5)解决WiFi无网络信号时首次加载卡屏的问题
+ --------------------
+ v2.1.1
+ 新增：
+ 1.新增调启百度地图导航的接口（百度地图导航和Web端导航）
+ 在BMKNavigation中新增类枚举类型的数据结构NAVI_TYPE来定义调起导航的两种类型：NAVI_TYPE_NATIVE(调起客户端导航)和NAVI_TYPE_WEB(调起web导航)
+ 在BMKNavigation中新增类NaviPara来管理调起导航时传入的参数
+ 在类NaviPara中新增属性@property (nonatomic, retain) BMKPlanNode* startPoint;定义导航的起点
+ 在类NaviPara中新增属性@property (nonatomic, retain) BMKPlanNode* endPoint;定义导航的终点
+ 在类NaviPara中新增属性@property (nonatomic, assign) NAVI_TYPE naviType;定义导航的类型
+ 在类NaviPara中新增属性@property (nonatomic, retain) NSString* appScheme;定义应用返回scheme
+ 在类NaviPara中新增属性@property (nonatomic, retain) NSString* appName;定义应用名称
+ 在BMKNavigation中新增接口+ (void)openBaiduMapNavigation:;根据传入的参数调启导航
+ 
+ 2.几何图形绘制中，增加弧线绘制方法
+ 在BMKArcline中新增接口+ (BMKArcline *)arclineWithPoints:;根据指定坐标点生成一段圆弧
+ 在BMKArcline中新增接口+ (BMKArcline *)arclineWithCoordinates:;根据指定经纬度生成一段圆弧
+ 在类BMKArclineView中新增属性@property (nonatomic, readonly) BMKArcline *arcline;来定义该View对应的圆弧数据对象
+ 在BMKArclineView中新增接口- (id)initWithArcline:;根据指定的弧线生成一个圆弧View
+ 
+ 3.几何图形绘制中，扩增凹多边形绘制能力
+ 
+ 4.新增Key验证返回值
+ 在BMKMapManager中新增枚举数据类型EN_PERMISSION_STATUS类来定义key验证错误码
+ 服务端具体返回的错误码请参见http://developer.baidu.com/map/lbs-appendix.htm#.appendix2
+ 
+ 5.新增公交换乘查询中的结果字段
+ 在类BMKLine中新增属性@property (nonatomic) int zonePrice;定义路段价格
+ 在类BMKLine中新增属性@property (nonatomic) int totalPrice;定义线路总价格
+ 在类BMKLine中新增属性@property (nonatomic) int time;定义线路耗时，单位：秒
+ 在类BMKRoute中新增属性@property (nonatomic) int time;定义此路段的消耗时间，单位：秒
+ 
+ 优化：
+ 优化Key鉴权认证策略
+ 优化几何图形绘制中，折线段绘制末端圆滑
+ 提升添加、删除几何图形覆盖物的效率
+ 
+ 修复：
+ 修复iOS7系统下，定位图层拖图时卡顿的bug
+ 修复POI检索结果中，结果页索引始终为0的bug
+ 修复驾车线路规划中，最后一个节点提示信息有误的bug
  *********************/
 
 
@@ -199,5 +239,5 @@
  */
 UIKIT_STATIC_INLINE NSString* BMKGetMapApiVersion()
 {
-	return @"2.1.0";
+	return @"2.1.1";
 }
