@@ -75,6 +75,10 @@ typedef enum {
 
 /// 地图比例尺级别，在手机上当前可使用的级别为3-19级
 @property (nonatomic) float zoomLevel;
+/// 地图的自定义最小比例尺级别
+@property (nonatomic) float minZoomLevel;
+/// 地图的自定义最大比例尺级别
+@property (nonatomic) float maxZoomLevel;
 
 /// 地图旋转角度，在手机上当前可使用的范围为－180～180度
 @property (nonatomic) int rotation;
@@ -216,10 +220,16 @@ typedef enum {
  */
 - (BMKMapRect)convertRect:(CGRect)rect toMapRectFromView:(UIView *)view;
 
-///设定地图View能否支持用户多点缩放
+///设定地图View能否支持用户多点缩放(双指)
 @property(nonatomic, getter=isZoomEnabled) BOOL zoomEnabled;
+///设定地图View能否支持用户缩放(双击或双指单击)
+@property(nonatomic, getter=isZoomEnabledWithTap) BOOL zoomEnabledWithTap;
 ///设定地图View能否支持用户移动地图
 @property(nonatomic, getter=isScrollEnabled) BOOL scrollEnabled;
+///设定地图View能否支持俯仰角
+@property(nonatomic, getter=isOverlookEnabled) BOOL overlookEnabled;
+///设定地图View能否支持旋转
+@property(nonatomic, getter=isRotateEnabled) BOOL rotateEnabled;
 
 /**
  *向地图窗口添加标注，需要实现BMKMapViewDelegate的-mapView:viewForAnnotation:函数来生成标注对应的View

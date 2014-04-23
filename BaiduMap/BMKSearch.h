@@ -221,60 +221,66 @@ enum {
 @optional
 /**
  *返回POI搜索结果
+ *@param searcher 搜索对象
  *@param poiResultList 搜索结果列表，成员类型为BMKPoiResult
  *@param type 返回结果类型： BMKTypePoiList,BMKTypeAreaPoiList,BMKAreaMultiPoiList
  *@param error 错误号，@see BMKErrorCode
  */
-- (void)onGetPoiResult:(NSArray*)poiResultList searchType:(int)type errorCode:(int)error;
-
+- (void)onGetPoiResult:(BMKSearch*)searcher result:(NSArray*)poiResultList searchType:(int)type errorCode:(int)error;
 /**
  *返回公交搜索结果
+ *@param searcher 搜索对象
  *@param result 搜索结果
  *@param error 错误号，@see BMKErrorCode
  */
-- (void)onGetTransitRouteResult:(BMKPlanResult*)result errorCode:(int)error;
-
+- (void)onGetTransitRouteResult:(BMKSearch*)searcher result:(BMKPlanResult*)result errorCode:(int)error;
 /**
  *返回驾乘搜索结果
+ *@param searcher 搜索对象
  *@param result 搜索结果
  *@param error 错误号，@see BMKErrorCode
  */
-- (void)onGetDrivingRouteResult:(BMKPlanResult*)result errorCode:(int)error;
+- (void)onGetDrivingRouteResult:(BMKSearch*)searcher result:(BMKPlanResult*)result errorCode:(int)error;
 
 /**
  *返回步行搜索结果
+ *@param searcher 搜索对象
  *@param result 搜索结果
  *@param error 错误号，@see BMKErrorCode
  */
-- (void)onGetWalkingRouteResult:(BMKPlanResult*)result errorCode:(int)error;
+- (void)onGetWalkingRouteResult:(BMKSearch*)searcher result:(BMKPlanResult*)result errorCode:(int)error;
 
 /**
  *返回地址信息搜索结果
+ *@param searcher 搜索对象
  *@param result 搜索结果
  *@param error 错误号，@see BMKErrorCode
  */
-- (void)onGetAddrResult:(BMKAddrInfo*)result errorCode:(int)error;
+- (void)onGetAddrResult:(BMKSearch*)searcher result:(BMKAddrInfo*)result errorCode:(int)error;
 
 /**
  *返回suggestion搜索结果
+ *@param searcher 搜索对象
  *@param result 搜索结果
  *@param error 错误号，@see BMKErrorCode
  */
-- (void)onGetSuggestionResult:(BMKSuggestionResult*)result errorCode:(int)error;
+- (void)onGetSuggestionResult:(BMKSearch*)searcher result:(BMKSuggestionResult*)result errorCode:(int)error;
 
 /**
  *返回busdetail搜索结果
+ *@param searcher 搜索对象
  *@param busLineResult 搜索结果
  *@param error 错误号，@see BMKErrorCode
  */
-- (void)onGetBusDetailResult:(BMKBusLineResult*)busLineResult errorCode:(int)error;
+- (void)onGetBusDetailResult:(BMKSearch*)searcher result:(BMKBusLineResult*)busLineResult errorCode:(int)error;
 
 /**
  *返回poi详情分享url
+ *@param searcher 搜索对象
  *@param url 返回结果url
  *@param error 错误号，@see BMKErrorCode
  */
-- (void)onGetShareUrl:(NSString*) url withType:(BMK_SHARE_URL_TYPE) urlType errorCode:(int)error;
+- (void)onGetShareUrl:(BMKSearch*)searcher result:(NSString*) url withType:(BMK_SHARE_URL_TYPE) urlType errorCode:(int)error;
 
 
 @end

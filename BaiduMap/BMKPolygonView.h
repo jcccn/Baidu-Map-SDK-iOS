@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 #import "BMKPolygon.h"
-#import "BMKOverlayPathView.h"
+#import "BMKOverlayGLBasicView.h"
 
 /// 此类用于定义一个多边形View
-@interface BMKPolygonView : BMKOverlayPathView
+@interface BMKPolygonView : BMKOverlayGLBasicView
 
 /**
  *根据指定的多边形生成一个多边形View

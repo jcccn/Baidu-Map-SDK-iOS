@@ -27,6 +27,7 @@
 #import "BMKCircle.h"
 #import "BMKOverlayView.h"
 #import "BMKOverlayPathView.h"
+#import "BMKOverlayGLBasicView.h"
 #import "BMKPolygonView.h"
 #import "BMKPolylineView.h"
 #import "BMKCircleView.h"

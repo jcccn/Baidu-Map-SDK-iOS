@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 #import "BMKArcline.h"
-#import "BMKOverlayPathView.h"
+#import "BMKOverlayGLBasicView.h"
 
 /// 此类用于定义一个圆弧View
-@interface BMKArclineView : BMKOverlayPathView
+@interface BMKArclineView : BMKOverlayGLBasicView
 
 /**
  *根据指定的弧线生成一个圆弧View

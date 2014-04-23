@@ -109,11 +109,11 @@
  1）在BMKType中新增数据结构：BMK_SHARE_URL_TYPE（分享串数据类型）
  2）在BMKSearch中新增接口-(BOOL)poiDetailShareUrl:(NSString*) uid; 发起poi短串搜索
  3）在BMKSearch中新增接口-(BOOL)reverseGeoShareUrl:(CLLocationCoordinate2D)coor
- poiName:(NSString*)name
- poiAddress:(NSString*)address; 发起反geo短串搜索
+                              poiName:(NSString*)name
+                              poiAddress:(NSString*)address; 发起反geo短串搜索
  4）在BMKSearchDelegate中新增接口-(void)onGetShareUrl:(NSString*) url
- withType:(BMK_SHARE_URL_TYPE) urlType
- errorCode:(int)error; 返回短串分享url
+                                      withType:(BMK_SHARE_URL_TYPE) urlType
+                                      errorCode:(int)error; 返回短串分享url
  3.比例尺控件
  1）在BMKMapview中新增属性@property (nonatomic) BOOL showMapScaleBar;比例尺是否显示
  2）在BMKMapview中新增属性@property (nonatomic) CGPoint mapScaleBarPosition;比例尺显示位置
@@ -130,7 +130,7 @@
  2）在BMKTransitRoutePlan中新增属性@property (nonatomic) float price; 白天打车估价，单位(元)
  3）在BMKTransitRoutePlan中新增属性@property (nonatomic, retain) BMKTime* time; 方案所用时间
  4）在BMKRoutePlan中新增属性@property (nonatomic, retain) BMKTime* time; 方案预计的行驶时间
- 
+  
  优化：
  1）对在BMKMapview中的接口- (void)removeAnnotations:(NSArray *)annotations;（移除一组标注）进行了优化
  
@@ -138,7 +138,7 @@
  1）修复离线地图——支持离线包的城市列表中省份下无子城市的问题
  2）修复前台数据请求后退至后台opengl继续渲染，应用Crash的问题
  
- --------------------
+--------------------
  v2.1.0
  新增：
  1.全面接入LBS.云V2.0，全面开放LBS.云检索能力
@@ -190,6 +190,7 @@
  3)修复缩放底图，接口- (void)mapView: regionDidChangeAnimated:不回调的问题
  4)修复从其他页面返回原页面泡泡被压盖的问题
  5)解决WiFi无网络信号时首次加载卡屏的问题
+ 
  --------------------
  v2.1.1
  新增：
@@ -225,11 +226,37 @@
  优化Key鉴权认证策略
  优化几何图形绘制中，折线段绘制末端圆滑
  提升添加、删除几何图形覆盖物的效率
- 
  修复：
  修复iOS7系统下，定位图层拖图时卡顿的bug
  修复POI检索结果中，结果页索引始终为0的bug
  修复驾车线路规划中，最后一个节点提示信息有误的bug
+ --------------------
+ v2.2.0
+ 新增：
+ 1. 新增地图多实例能力，开发者可在同一个页面上构建多张相互独立的地图，各地图上的覆盖物互不干扰；
+ 2. 新增检索多实例能力，开发者可并行发起多个检索来满足自己实际的业务需求
+ 由于新增检索多实例能力，因此需要在BMKSearchDelegate的回调中增加searcher参数来表明是哪个检索对象发起的检   索。所以应用检索多实例时需要将检索结果和searcher来进行一一对应。示例如下：
+ - (void)onGetPoiResult:(BMKSearch*)searcher result:(NSArray*)poiResultListsearchType:(int)type errorCode:(int)error{
+ if(searcher==_search){
+ NSLog(@"这是_search 对应的POI搜索结果");
+ }else if(searcher==_search2){
+ NSLog(@"这是_search2对应的POI搜索结果");
+ }
+ }
+ 3. 新增地图最大、最小缩放等级的控制方法
+ 在类BMKMapView中新增属性@property (nonatomic) float minZoomLevel;来设定地图的自定义最小比例尺级别
+ 在类BMKMapView中新增属性@property (nonatomic) float maxZoomLevel;来设定地图的自定义最大比例尺级别
+ 4. 新增地图操作的手势控制开关
+ 在类BMKMapView中新增属性@property(nonatomic, getter=isZoomEnabledWithTap) BOOL zoomEnabledWithTap;来设定地图View能否支持用户单指双击放大地图，双指单击缩小地图
+ 在类BMKMapView中新增属性@property(nonatomic, getter=isOverlookEnabled) BOOL overlookEnabled;来设定地图View能否支持俯仰角
+ 在类BMKMapView中新增属性@property(nonatomic, getter=isRotateEnabled) BOOL rotateEnabled;来设定地图View能否支持旋转
+ 
+ 
+ 修复：
+ 1.  修复遗留zip库冲突问题
+ 2.  解决Documents下的非用户数据上传iCloud的问题
+ 3.  修复BMKMapViewDelegate中regionDidChangeAnimated / regionWillChangeAnimated图区变化问题
+
  *********************/
 
 
@@ -239,5 +266,5 @@
  */
 UIKIT_STATIC_INLINE NSString* BMKGetMapApiVersion()
 {
-	return @"2.1.1";
+	return @"2.2.0";
 }

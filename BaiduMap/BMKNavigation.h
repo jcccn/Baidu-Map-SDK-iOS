@@ -7,15 +7,15 @@
  */
 #import <UIKit/UIKit.h>
 #import "BMKRouteSearchType.h"
-//定义调启导航的两种类型
+//定义调起导航的两种类型
 typedef enum
 {
     NAVI_TYPE_NATIVE = 0,//客户端导航
     NAVI_TYPE_WEB,//web导航
 } NAVI_TYPE;
 
-///此类管理调启导航时传入的参数
-@interface NaviPara : NSObject
+///此类管理调起导航时传入的参数
+@interface BMKNaviPara : NSObject
 {
 	BMKPlanNode* _startPoint;
 	BMKPlanNode* _endPoint;
@@ -42,9 +42,9 @@ typedef enum
 
 /**
 *启动导航
-*@param para 调启导航时传入得参数
+*@param para 调起导航时传入得参数
 */
-+ (void)openBaiduMapNavigation:(NaviPara*)para;
++ (void)openBaiduMapNavigation:(BMKNaviPara*)para;
 
 
 @end
