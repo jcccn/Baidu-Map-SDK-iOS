@@ -256,7 +256,16 @@
  1.  修复遗留zip库冲突问题
  2.  解决Documents下的非用户数据上传iCloud的问题
  3.  修复BMKMapViewDelegate中regionDidChangeAnimated / regionWillChangeAnimated图区变化问题
-
+ --------------------
+ v2.2.1
+  修复：
+ 1.  修复v2.2.0版本覆盖安装后，地图无法正常显示的问题
+ 2.  修复地图高级别下，道路名称不显示的问题
+ 3.  修复BMKMapManage的stop方法不可用的问题
+ 4.  修复setMapStatus中设置地图等级异常的问题
+ 5.  修复地图中心点偏移时，拖动地图覆盖物异常的问题
+ 6.  修复BMKMapView中手势控制相关的enable属性获取不正确的问题
+ 7.  修复与XML库冲突的问题
  *********************/
 
 
@@ -266,5 +275,5 @@
  */
 UIKIT_STATIC_INLINE NSString* BMKGetMapApiVersion()
 {
-	return @"2.2.0";
+	return @"2.2.1";
 }
