@@ -41,6 +41,13 @@
  *@return 成功返回YES，否则返回NO
  */
 - (BOOL)poiSearchNearBy:(BMKNearbySearchOption*)option;
+/**
+ *根据poi uid 发起poi详情检索
+ *异步函数，返回结果在BMKPoiSearchDelegate的onGetPoiDetailResult通知
+ *@param option poi详情检索参数类（BMKPoiDetailSearchOption）
+ *@return 成功返回YES，否则返回NO
+ */
+- (BOOL)poiDetailSearch:(BMKPoiDetailSearchOption*)option;
 @end
 
 ///搜索delegate，用于获取搜索结果
@@ -54,7 +61,13 @@
  */
 - (void)onGetPoiResult:(BMKPoiSearch*)searcher result:(BMKPoiResult*)poiResult errorCode:(BMKSearchErrorCode)errorCode;
 
-
+/**
+ *返回POI详情搜索结果
+ *@param searcher 搜索对象
+ *@param poiDetailResult 详情搜索结果
+ *@param errorCode 错误号，@see BMKSearchErrorCode
+ */
+- (void)onGetPoiDetailResult:(BMKPoiSearch*)searcher result:(BMKPoiDetailResult*)poiDetailResult errorCode:(BMKSearchErrorCode)errorCode;
 @end
 
 

@@ -13,6 +13,7 @@
 #import "UIKit/UIKit.h"
 #import "BMKMapStatus.h"
 #import "BMKLocationViewDisplayParam.h"
+#import "BMKHeatMap.h"
 
 @protocol BMKMapViewDelegate;
 
@@ -403,6 +404,20 @@ typedef enum {
  *@return 指定overlay对应的View
  */
 - (BMKOverlayView *)viewForOverlay:(id <BMKOverlay>)overlay;
+
+@end
+@interface BMKMapView (HeatMapAPI)
+
+/**
+ *添加热力图
+ *	@param	[BMKHeatMap*]	heatMap	热力图绘制和显示数据
+ */
+- (void)addHeatMap:(BMKHeatMap*)heatMap;
+
+/**
+ *移除热力图
+ */
+- (void)removeHeatMap;
 
 @end
 

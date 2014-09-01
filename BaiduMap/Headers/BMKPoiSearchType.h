@@ -96,5 +96,76 @@ enum {
 
 @end
 
+///poi详情检索结果类
+@interface BMKPoiDetailResult : NSObject {
+    NSString* _name;
+    CLLocationCoordinate2D _pt;
+    NSString* _address;
+    NSString* _phone;
+    NSString* _uid;
+    NSString* _tag;
+    NSString* _detailUrl;
+    NSString* _type;
+    double  _price;
+    double _overallRating;
+    double _tasteRating;
+    double _serviceRating;
+    double _environmentRating;
+    double _facilityRating;
+    double _hygieneRating;
+    double _technologyRating;
+    int _imageNum;
+    int _grouponNum;
+    int _commentNum;
+    int _favoriteNum;
+    int _checkInNum;
+    NSString* _shopHours;
+}
+///POI名称
+@property (nonatomic, retain) NSString* name;
+///POI地址
+@property (nonatomic, retain) NSString* address;
+///POI电话号码
+@property (nonatomic, retain) NSString* phone;
+///POIuid
+@property (nonatomic, retain) NSString* uid;
+///POI标签
+@property (nonatomic, retain) NSString* tag;
+///POI详情页url
+@property (nonatomic, retain) NSString* detailUrl;
+///POI所属分类，如“hotel”，“cater”，“life”
+@property (nonatomic, retain) NSString* type;
+///POI地理坐标
+@property (nonatomic) CLLocationCoordinate2D pt;
+///POI价格
+@property (nonatomic) double price;
+///POI综合评分
+@property (nonatomic) double overallRating;
+///POI口味评分
+@property (nonatomic) double tasteRating;
+///POI服务评分
+@property (nonatomic) double serviceRating;
+///POI环境评分
+@property (nonatomic) double environmentRating;
+///POI设施评分
+@property (nonatomic) double facilityRating;
+///POI卫生评分
+@property (nonatomic) double hygieneRating;
+///POI技术评分
+@property (nonatomic) double technologyRating;
+///POI图片数目
+@property (nonatomic) int imageNum;
+///POI团购数目
+@property (nonatomic) int grouponNum;
+///POI评论数目
+@property (nonatomic) int commentNum;
+///POI收藏数目
+@property (nonatomic) int favoriteNum;
+///POI签到数目
+@property (nonatomic) int checkInNum;
+///POI营业时间
+@property (nonatomic, retain) NSString* shopHours;
+@end
+
 
 

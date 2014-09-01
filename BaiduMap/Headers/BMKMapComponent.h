@@ -31,4 +31,5 @@
 #import "BMKArclineView.h"
 #import "BMKGroundOverlay.h"
 #import "BMKGroundOverlayView.h"
+#import "BMKGradient.h"
 

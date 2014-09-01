@@ -38,9 +38,9 @@
 ///反地址编码结果
 @interface BMKReverseGeoCodeResult : NSObject
 {
-	BMKAddressComponent* _addressComponent;
-	NSString* _strAddr;
-	CLLocationCoordinate2D _geoPt;
+	BMKAddressComponent* _addressDetail;
+	NSString* _address;
+	CLLocationCoordinate2D _location;
 	NSArray* _poiList;
 }
 ///层次化地址信息

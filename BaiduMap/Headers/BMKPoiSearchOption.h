@@ -52,4 +52,13 @@
 @property (nonatomic, assign) CLLocationCoordinate2D rightTop;
 @end
 
+///poi详情检索信息类
+@interface BMKPoiDetailSearchOption : NSObject {
+    NSString* _poiUid;
+}
+///poi的uid，从poi检索返回的BMKPoiResult结构中获取
+@property (nonatomic, retain) NSString* poiUid;
+
+@end
+
 

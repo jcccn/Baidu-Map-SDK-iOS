@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'BaiduMap'
-  s.version  = '2.3.0'
+  s.version  = '2.4.0'
   s.summary  = 'The iOS SDK for Baidu Map.'
   s.homepage = 'https://github.com/jcccn/Baidu-Map-SDK-iOS'
   s.author   = { 'Chuncheng Jiang' => 'jccuestc@gmail.com' }
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                    ©2014 Baidu
                  LICENSE
                }
-  s.source   = { :git => 'https://github.com/jcccn/Baidu-Map-SDK-iOS.git', :tag => '2.3.0' }
+  s.source   = { :git => 'https://github.com/jcccn/Baidu-Map-SDK-iOS.git', :tag => '2.4.0' }
   s.platform     = :ios, '4.3'
   s.frameworks   = "UIKit", "CoreLocation", "QuartzCore", "OpenGLES", "SystemConfiguration", "CoreGraphics", "Security"
 
