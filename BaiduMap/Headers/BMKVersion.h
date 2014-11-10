@@ -313,12 +313,35 @@
  v2.4.1
  优化：
  1. 优化底图相关的内存使用问题；
+ 
+ --------------------
+ v2.5.0
+ 使用Xcode6创建工程时注意事项如下：
+ 在info.plist中添加：Bundle display name （Xcode6新建的项目没有此配置，若没有会造成manager start failed）
+ 【 新 增 】
+ 1. 新增对arm64 CPU架构的适配；
+ 基础地图
+ 1. 新增对iPhone6、iPhone6 plus的屏幕适配；
+ 定位功能
+ 1. 新增对iOS8定位的适配；
+ 在使用SDK为您提供的定位功能时，注意事项如下：
+ 需要在info.plist里添加（以下二选一，两个都添加默认使用NSLocationWhenInUseUsageDescription）：
+ NSLocationWhenInUseUsageDescription  ，允许在前台使用时获取GPS的描述
+ NSLocationAlwaysUsageDescription  ，允许永久使用GPS的描述
+ 【 修 复 】
+ 修复Tabber控制器中使用定位弹出框异常的问题；
+ 修复scrollenable=no，仍可以移动地图的问题；
+ 修复多边形在特定坐标下显示异常问题；
+ 修复定位时间戳错误的问题；
+ 修复autolayout时，BMKMapView横屏时无法自动扩展的问题；
+ 修复从B页返回到A页后，在A页的viewWillAppear方法中setCenterCoordinate无效的问题；
  *********************/
 /**
  *获取当前地图API的版本号
  *return  返回当前API的版本号
  */
+
 UIKIT_STATIC_INLINE NSString* BMKGetMapApiVersion()
 {
-	return @"2.4.1";
+	return @"2.5.0";
 }

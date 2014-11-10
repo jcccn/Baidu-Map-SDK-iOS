@@ -51,6 +51,9 @@
 
 /**
  *打开定位服务
+ *需要在info.plist文件中添加(以下二选一，两个都添加默认使用NSLocationWhenInUseUsageDescription)：
+ *NSLocationWhenInUseUsageDescription 允许在前台使用时获取GPS的描述
+ *NSLocationAlwaysUsageDescription 允许永远可获取GPS的描述
  */
 -(void)startUserLocationService;
 /**

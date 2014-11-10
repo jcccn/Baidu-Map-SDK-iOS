@@ -23,7 +23,6 @@ enum {
 };
 typedef NSUInteger BMKMapType;
 
-
 typedef enum {
 	BMKErrorOk = 0,	///< 正确，无错误
     BMKErrorConnect = 2,	///< 网络连接错误
@@ -34,17 +33,17 @@ typedef enum {
 	BMKErrorPermissionCheckFailure = 300,	///< 百度地图API授权Key验证失败
 	BMKErrorParse = 310		///< 数据解析失败
 }BMKErrorCode;
-//key验证结果状态码
+//鉴权结果状态码
 typedef enum {
+    E_PERMISSIONCHECK_CONNECT_ERROR = -300,//链接服务器错误
+    E_PERMISSIONCHECK_DATA_ERROR = -200,//服务返回数据异常
     E_PERMISSIONCHECK_OK = 0,	// 授权验证通过
-	E_PERMISSIONCHECK_KEY_ERROR = -1,	// Key格式错误，无效Key
-	E_PERMISSIONCHECK_PV_LIMITED = -2,	//该应用已到达最大日访问量
-	E_PERMISSIONCHECK_KEY_LOCKED = -3,	//该Key被封禁
-	E_PERMISSIONCHECK_SHOULD_PAY = -4,	//需要续费使用
-	E_PERMISSIONCHECK_NONE = 1,	// 尚未进行验证
-	E_PERMISSIONCHECK_CHECHING = 2,	// 正在验证⋯⋯
-	E_PERMISSIONCHECK_SERVER_ERROR = 3,	// 服务端错误
-	E_PERMISSIONCHECK_NETWORK_ERROR = 4,	// 服务端错日误
+	E_PERMISSIONCHECK_PARAM_ERROR = 2,	// 参数错误
+	E_PERMISSIONCHECK_KEY_ERROR = 5,	//ak不存在
+	E_PERMISSIONCHECK_SERVER_FORBIDEN = 101,	//该服务被禁用
+	E_PERMISSIONCHECK_MCODE_ERROR = 102,	//mcode签名值不正确
+	E_PERMISSIONCHECK_UID_KEY_ERROR = 231,	// 用户uid，ak不存在
+	E_PERMISSIONCHECK_KEY_FORBIDEN= 232,	// 用户、ak被封禁
 }BMKPermissionCheckResultCode;
 //检索结果状态码
 typedef enum{

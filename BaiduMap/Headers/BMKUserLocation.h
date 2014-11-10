@@ -7,6 +7,7 @@
 //
 #import <CoreLocation/CLLocation.h>
 #import <Foundation/Foundation.h>
+#import "BMKBaseComponent.h"
 @class CLLocation;
 @class CLHeading;
 @interface BMKUserLocation : NSObject
@@ -25,6 +26,5 @@
 
 /// 定位标注点要显示的子标题信息.
 @property (retain, nonatomic) NSString *subtitle;
-
 
 @end
