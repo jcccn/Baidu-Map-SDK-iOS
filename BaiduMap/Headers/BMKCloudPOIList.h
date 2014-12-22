@@ -24,7 +24,7 @@
 ///页数
 @property (nonatomic, assign) NSInteger     pageNum;
 ///POI结果列表
-@property (nonatomic, retain) NSArray       *POIs;
+@property (nonatomic, strong) NSArray       *POIs;
 
 @end
 
@@ -55,27 +55,27 @@
 ///所属table的id
 @property (nonatomic, assign) int             geotableId;
 ///poi名称
-@property (nonatomic, retain) NSString        *title;
+@property (nonatomic, strong) NSString        *title;
 ///poi地址
-@property (nonatomic, retain) NSString        *address;
+@property (nonatomic, strong) NSString        *address;
 ///poi所属省
-@property (nonatomic, retain) NSString        *province;
+@property (nonatomic, strong) NSString        *province;
 ///poi所属城市
-@property (nonatomic, retain) NSString        *city;
+@property (nonatomic, strong) NSString        *city;
 ///poi所属区县
-@property (nonatomic, retain) NSString        *district;
+@property (nonatomic, strong) NSString        *district;
 ///poi所处位置的纬度
 @property (nonatomic, assign) float           latitude;
 ///poi所处位置的经度
 @property (nonatomic, assign) float           longitude;
 ///poi标签
-@property (nonatomic, retain) NSString        *tags;
+@property (nonatomic, strong) NSString        *tags;
 ///poi距离
 @property (nonatomic, assign) float           distance;
 ///权重
 @property (nonatomic, assign) float           weight;
 ///自定义列
-@property (nonatomic, retain) NSMutableDictionary *customDict;
+@property (nonatomic, strong) NSMutableDictionary *customDict;
 ///创建时间
 @property (nonatomic, assign) int             creattime;
 ///修改时间

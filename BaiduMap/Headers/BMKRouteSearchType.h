@@ -43,7 +43,7 @@ typedef enum
     int       _totalPrice;
 }
 ///路线打车描述信息
-@property (nonatomic, retain) NSString* desc;
+@property (nonatomic, strong) NSString* desc;
 ///总路程，单位： 米
 @property (nonatomic) int distance;
 ///总耗时，单位： 秒
@@ -64,9 +64,9 @@ typedef enum
     int       _zonePrice;
 }
 ///该交通路线的标识
-@property (nonatomic, retain) NSString* uid;
+@property (nonatomic, strong) NSString* uid;
 ///该交通路线的名称
-@property (nonatomic, retain) NSString* title;
+@property (nonatomic, strong) NSString* title;
 ///该交通路线的所乘站数
 @property (nonatomic) int passStationNum;
 ///该交通路线的全程价格
@@ -101,9 +101,9 @@ typedef enum
     CLLocationCoordinate2D _location;
 }
 ///该节点uid
-@property (nonatomic, retain) NSString* uid;
+@property (nonatomic, strong) NSString* uid;
 ///该节点的名称
-@property (nonatomic, retain) NSString* title;
+@property (nonatomic, strong) NSString* title;
 ///该节点的坐标
 @property (nonatomic) CLLocationCoordinate2D location;
 @end
@@ -141,15 +141,15 @@ typedef enum
     BMKVehicleInfo*      _vehicleInfo;
 }
 ///路段入口信息
-@property (nonatomic, retain) BMKRouteNode* entrace;
+@property (nonatomic, strong) BMKRouteNode* entrace;
 ///路段出口信息
-@property (nonatomic, retain) BMKRouteNode* exit;
+@property (nonatomic, strong) BMKRouteNode* exit;
 ///路段换乘说明
-@property (nonatomic, retain) NSString* instruction;
+@property (nonatomic, strong) NSString* instruction;
 ///路段类型
 @property (nonatomic) BMKTransitStepType stepType;
 ///当路段为公交路段或地铁路段时，可以获取交通工具信息
-@property (nonatomic, retain) BMKVehicleInfo* vehicleInfo;
+@property (nonatomic, strong) BMKVehicleInfo* vehicleInfo;
 @end
 ///此类表示驾车路线中的一个路段
 @interface BMKDrivingStep : BMKRouteStep{
@@ -164,15 +164,15 @@ typedef enum
 ///该路段起点方向值
 @property (nonatomic) int direction;
 ///路段入口信息
-@property (nonatomic, retain) BMKRouteNode* entrace;
+@property (nonatomic, strong) BMKRouteNode* entrace;
 ///路段入口的指示信息
-@property (nonatomic, retain) NSString* entraceInstruction;
+@property (nonatomic, strong) NSString* entraceInstruction;
 ///路段出口信息
-@property (nonatomic, retain) BMKRouteNode* exit;
+@property (nonatomic, strong) BMKRouteNode* exit;
 ///路段出口指示信息
-@property (nonatomic, retain) NSString* exitInstruction;
+@property (nonatomic, strong) NSString* exitInstruction;
 ///路段总体指示信息
-@property (nonatomic, retain) NSString* instruction;
+@property (nonatomic, strong) NSString* instruction;
 ///路段需要转弯数
 @property (nonatomic) int numTurns;
 @end
@@ -188,15 +188,15 @@ typedef enum
 ///该路段起点方向值
 @property (nonatomic) int direction;
 ///路段入口信息
-@property (nonatomic, retain) BMKRouteNode* entrace;
+@property (nonatomic, strong) BMKRouteNode* entrace;
 ///获取该路段换乘说明
-@property (nonatomic, retain) NSString* entraceInstruction;
+@property (nonatomic, strong) NSString* entraceInstruction;
 ///路段出口信息
-@property (nonatomic, retain) BMKRouteNode* exit;
+@property (nonatomic, strong) BMKRouteNode* exit;
 ///获取该路段换乘说明
-@property (nonatomic, retain) NSString* exitInstruction;
+@property (nonatomic, strong) NSString* exitInstruction;
 ///获取该路段换乘说明
-@property (nonatomic, retain) NSString* instruction;
+@property (nonatomic, strong) NSString* instruction;
 @end
 
 
@@ -213,15 +213,15 @@ typedef enum
 ///路线长度 单位： 米
 @property (nonatomic) int distance;
 ///路线耗时 单位： 秒
-@property (nonatomic, retain) BMKTime* duration;
+@property (nonatomic, strong) BMKTime* duration;
 ///路线起点信息
-@property (nonatomic, retain) BMKRouteNode* starting;
+@property (nonatomic, strong) BMKRouteNode* starting;
 ///路线终点信息
-@property (nonatomic, retain) BMKRouteNode* terminal;
+@property (nonatomic, strong) BMKRouteNode* terminal;
 ///路线名称(预留字段，现为空)
-@property (nonatomic, retain) NSString* title;
+@property (nonatomic, strong) NSString* title;
 ///路线中的所有路段，成员类型为BMKWalkingStep，BMKDrivingStep，BMKTransitStep
-@property (nonatomic, retain) NSArray* steps;
+@property (nonatomic, strong) NSArray* steps;
 @end
 ///此类表示一个换乘路线，换乘路线将根据既定策略调配多种交通工具
 @interface BMKTransitRouteLine : BMKRouteLine
@@ -234,7 +234,7 @@ typedef enum
 ///该路线所在区域是否含有交通流量信息
 @property (nonatomic) bool isSupportTraffic;
 ///路线途经点列表，成员类型为BMKPlanNode
-@property (nonatomic, retain) NSArray* wayPoints;
+@property (nonatomic, strong) NSArray* wayPoints;
 @end
 ///此类表示一条步行路线
 @interface BMKWalkingRouteLine : BMKRouteLine
@@ -251,17 +251,17 @@ typedef enum
     NSArray* _wayPointsCityList;
 }
 ///起点POI列表，成员类型为BMKPoiInfo
-@property (nonatomic, retain) NSArray* startPoiList;
+@property (nonatomic, strong) NSArray* startPoiList;
 ///起点城市列表，成员类型为BMKCityListInfo,如果输入的地点在本城市没有而在其它城市有，则返回其它城市的信息
-@property (nonatomic, retain) NSArray* startCityList;
+@property (nonatomic, strong) NSArray* startCityList;
 ///终点POI列表，成员类型为BMKPoiInfo
-@property (nonatomic, retain) NSArray* endPoiList;
+@property (nonatomic, strong) NSArray* endPoiList;
 ///终点城市列表，成员类型为BMKCityListInfo,如果输入的地点在本城市没有而在其它城市有，则返回其它城市的信息
-@property (nonatomic, retain) NSArray* endCityList;
+@property (nonatomic, strong) NSArray* endCityList;
 ///途经点POI列表，成员类型为NSArray<BMKPoiInfo*>
-@property (nonatomic, retain) NSArray* wayPointPoiList;
+@property (nonatomic, strong) NSArray* wayPointPoiList;
 ///途经点城市列表，成员类型为NSArray<BMKCityListInfo*>,如果输入的地点在本城市没有而在其它城市有，则返回其它城市的信息
-@property (nonatomic, retain) NSArray* wayPointCityList;
+@property (nonatomic, strong) NSArray* wayPointCityList;
 @end
 
 ///此类表示公共交通信息查询结果
@@ -276,21 +276,21 @@ typedef enum
     NSArray*  _busSteps;
 }
 ///公交公司名称
-@property (nonatomic, retain) NSString* busCompany;
+@property (nonatomic, strong) NSString* busCompany;
 ///公交线路名称
-@property (nonatomic, retain) NSString* busLineName;
+@property (nonatomic, strong) NSString* busLineName;
 ///公交线路uid
-@property (nonatomic, retain) NSString* uid;
+@property (nonatomic, strong) NSString* uid;
 ///公交路线首班车时间
-@property (nonatomic, retain) NSString* startTime;
+@property (nonatomic, strong) NSString* startTime;
 ///公交路线末班车时间
-@property (nonatomic, retain) NSString* endTime;
+@property (nonatomic, strong) NSString* endTime;
 ///公交是线是否有月票
 @property (nonatomic) int isMonTicket;
 ///所有公交站点信息,成员类型为BMKBusStation
-@property (nonatomic, retain) NSArray* busStations;
+@property (nonatomic, strong) NSArray* busStations;
 ///公交路线分段信息，成员类型为BMKBusStep
-@property (nonatomic, retain) NSArray* busSteps;
+@property (nonatomic, strong) NSArray* busSteps;
 @end
 
 ///此类表示步行路线结果
@@ -300,11 +300,11 @@ typedef enum
     NSArray*            _routes;
 }
 ///该路线打车信息
-@property (nonatomic, retain) BMKTaxiInfo* taxiInfo;
+@property (nonatomic, strong) BMKTaxiInfo* taxiInfo;
 ///返回起点或终点的地址信息结果
-@property (nonatomic, retain) BMKSuggestAddrInfo* suggestAddrResult;
+@property (nonatomic, strong) BMKSuggestAddrInfo* suggestAddrResult;
 ///步行结果,现在只返回一条。成员类型为BMKWalkingRouteLine
-@property (nonatomic, retain) NSArray* routes;
+@property (nonatomic, strong) NSArray* routes;
 @end
 ///此类表示驾车路线结果
 @interface BMKDrivingRouteResult : NSObject{
@@ -313,11 +313,11 @@ typedef enum
     NSArray*            _routes;
 }
 ///该路线打车信息
-@property (nonatomic, retain) BMKTaxiInfo* taxiInfo;
+@property (nonatomic, strong) BMKTaxiInfo* taxiInfo;
 ///返回起点或终点的地址信息结果
-@property (nonatomic, retain) BMKSuggestAddrInfo* suggestAddrResult;
+@property (nonatomic, strong) BMKSuggestAddrInfo* suggestAddrResult;
 ///驾车结果,现在只返回一条。成员类型为BMKDrivingRouteLine
-@property (nonatomic, retain) NSArray* routes;
+@property (nonatomic, strong) NSArray* routes;
 @end
 
 @interface BMKTransitRouteResult : NSObject{
@@ -326,11 +326,11 @@ typedef enum
     NSArray*            _routes;
 }
 ///该路线打车信息
-@property (nonatomic, retain) BMKTaxiInfo* taxiInfo;
+@property (nonatomic, strong) BMKTaxiInfo* taxiInfo;
 ///返回起点或终点的地址信息结果
-@property (nonatomic, retain) BMKSuggestAddrInfo* suggestAddrResult;
+@property (nonatomic, strong) BMKSuggestAddrInfo* suggestAddrResult;
 ///方案数组,成员类型为BMKTransitRouteLine
-@property (nonatomic, retain) NSArray* routes;
+@property (nonatomic, strong) NSArray* routes;
 
 @end
 

@@ -17,9 +17,7 @@ typedef enum
 } BMK_COORD_TYPE;
 enum {
     BMKMapTypeStandard   = 1,               ///< 标准地图
-    BMKMapTypeTrafficOn  = 2,               ///< 实时路况 
-    BMKMapTypeSatellite  = 4,               ///< 卫星地图
-    BMKMapTypeTrafficAndSatellite  = 8,     ///< 同时打开实时路况和卫星地图
+    BMKMapTypeSatellite  = 2,               ///< 卫星地图
 };
 typedef NSUInteger BMKMapType;
 
@@ -38,12 +36,14 @@ typedef enum {
     E_PERMISSIONCHECK_CONNECT_ERROR = -300,//链接服务器错误
     E_PERMISSIONCHECK_DATA_ERROR = -200,//服务返回数据异常
     E_PERMISSIONCHECK_OK = 0,	// 授权验证通过
-	E_PERMISSIONCHECK_PARAM_ERROR = 2,	// 参数错误
-	E_PERMISSIONCHECK_KEY_ERROR = 5,	//ak不存在
-	E_PERMISSIONCHECK_SERVER_FORBIDEN = 101,	//该服务被禁用
+	E_PERMISSIONCHECK_KEY_ERROR = 101,	//ak不存在
 	E_PERMISSIONCHECK_MCODE_ERROR = 102,	//mcode签名值不正确
-	E_PERMISSIONCHECK_UID_KEY_ERROR = 231,	// 用户uid，ak不存在
-	E_PERMISSIONCHECK_KEY_FORBIDEN= 232,	// 用户、ak被封禁
+	E_PERMISSIONCHECK_UID_KEY_ERROR = 200,	// APP不存在，AK有误请检查再重试
+	E_PERMISSIONCHECK_KEY_FORBIDEN= 201,	// APP被用户自己禁用，请在控制台解禁
+    /*
+     *更多鉴权状态码请参考：
+     *http://developer.baidu.com/map/index.php?title=lbscloud/api/appendix
+     */
 }BMKPermissionCheckResultCode;
 //检索结果状态码
 typedef enum{
@@ -116,9 +116,9 @@ UIKIT_EXTERN const BMKMapRect BMKMapRectNull;
 }
 
 ///节点所在城市
-@property (nonatomic, retain) NSString* cityName;
+@property (nonatomic, strong) NSString* cityName;
 ///节点名称
-@property (nonatomic, retain) NSString* name;
+@property (nonatomic, strong) NSString* name;
 ///节点坐标
 @property (nonatomic) CLLocationCoordinate2D pt;
 @end

@@ -28,7 +28,7 @@
 ///跟随态旋转角度是否生效
 @property (nonatomic, assign) bool isRotateAngleValid;
 ///定位图标
-@property (nonatomic, retain) NSString* locationViewImgName;
+@property (nonatomic, strong) NSString* locationViewImgName;
 
 @end
 

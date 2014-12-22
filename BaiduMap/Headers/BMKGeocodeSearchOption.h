@@ -14,9 +14,9 @@
     NSString        *_city;
 }
 ///地址
-@property (nonatomic, retain) NSString *address;
+@property (nonatomic, strong) NSString *address;
 ///城市名
-@property (nonatomic, retain) NSString *city;
+@property (nonatomic, strong) NSString *city;
 @end
 
 ///反geo检索信息类

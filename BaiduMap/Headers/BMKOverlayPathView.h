@@ -26,9 +26,9 @@
 }
 
 /// 填充颜色
-@property (retain) UIColor *fillColor;
+@property (strong) UIColor *fillColor;
 /// 画笔颜色
-@property (retain) UIColor *strokeColor;
+@property (strong) UIColor *strokeColor;
 
 /// 画笔宽度，默认为0
 @property CGFloat lineWidth;

@@ -34,7 +34,10 @@
 @property (nonatomic,assign) BMKCoordinateBounds bound;
 
 /// 绘制图片
-@property(nonatomic, retain) UIImage *icon;
+@property(nonatomic, strong) UIImage *icon;
+
+///图片纹理透明度,最终透明度 = 纹理透明度 * alpha,取值范围为[0.0f, 1.0f]，默认为1.0f
+@property(nonatomic) GLfloat alpha;
 
 /**
  *根据指定经纬度坐标生成一个groundOverlay

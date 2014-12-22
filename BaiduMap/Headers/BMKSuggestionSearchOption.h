@@ -14,9 +14,9 @@
     
 }
 ///搜索关键字
-@property (nonatomic, retain) NSString *keyword;
+@property (nonatomic, strong) NSString *keyword;
 ///城市名
-@property (nonatomic, retain) NSString *cityname;
+@property (nonatomic, strong) NSString *cityname;
 
 @end
 

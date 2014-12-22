@@ -26,7 +26,7 @@ enum  {
 ///离线地图服务
 @interface BMKOfflineMap : NSObject
 
-@property (nonatomic, retain) id<BMKOfflineMapDelegate> delegate;
+@property (nonatomic, weak) id<BMKOfflineMapDelegate> delegate;
 
 
 

@@ -16,7 +16,7 @@
 ///busline搜索服务
 @interface BMKBusLineSearch : NSObject
 /// 检索模块的Delegate，此处记得不用的时候需要置nil，否则影响内存的释放
-@property (nonatomic, retain) id<BMKBusLineSearchDelegate> delegate;
+@property (nonatomic, weak) id<BMKBusLineSearchDelegate> delegate;
 
 /**
  *公交详情检索

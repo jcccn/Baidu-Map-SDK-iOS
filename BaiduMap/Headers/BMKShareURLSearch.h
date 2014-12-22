@@ -14,7 +14,7 @@
     NSString * _url;
 }
 ///返回结果url
-@property (nonatomic,retain) NSString* url;
+@property (nonatomic,strong) NSString* url;
 @end
 
 
@@ -22,7 +22,7 @@
 ///短串搜索服务
 @interface BMKShareURLSearch : NSObject
 /// 检索模块的Delegate，此处记得不用的时候需要置nil，否则影响内存的释放
-@property (nonatomic, retain) id<BMKShareURLSearchDelegate> delegate;
+@property (nonatomic, weak) id<BMKShareURLSearchDelegate> delegate;
 
 /**
  *获取poi详情短串分享url

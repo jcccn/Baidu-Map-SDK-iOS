@@ -13,7 +13,7 @@
     NSString        *_uid;
 }
 ///poi的uid
-@property (nonatomic, retain) NSString *uid;
+@property (nonatomic, strong) NSString *uid;
 
 @end
 
@@ -24,9 +24,9 @@
     CLLocationCoordinate2D  _location;
 }
 ///名称
-@property (nonatomic, retain) NSString *name;
+@property (nonatomic, strong) NSString *name;
 ///通过短URL调起客户端时作为附加信息显示在名称下面
-@property (nonatomic, retain) NSString *snippet;
+@property (nonatomic, strong) NSString *snippet;
 ///经纬度
 @property (nonatomic, assign) CLLocationCoordinate2D location;
 @end

@@ -15,7 +15,7 @@
     int             _pageCapacity;
 }
 ///搜索关键字
-@property (nonatomic, retain) NSString *keyword;
+@property (nonatomic, strong) NSString *keyword;
 ///分页索引，可选，默认为0
 @property (nonatomic, assign) int      pageIndex;
 ///分页数量，可选，默认为10，最多为50
@@ -27,7 +27,7 @@
     NSString        *_city;
 }
 ///区域名称(市或区的名字，如北京市，海淀区)，必选, 必须最长25个字符
-@property (nonatomic, retain) NSString *city;
+@property (nonatomic, strong) NSString *city;
 @end
 
 ///周边云检索参数信息类
@@ -57,7 +57,7 @@
     NSString* _poiUid;
 }
 ///poi的uid，从poi检索返回的BMKPoiResult结构中获取
-@property (nonatomic, retain) NSString* poiUid;
+@property (nonatomic, strong) NSString* poiUid;
 
 @end
 

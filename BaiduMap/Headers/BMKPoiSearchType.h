@@ -31,7 +31,7 @@ enum {
 	int		  _num;
 }
 ///城市名称
-@property (nonatomic, retain) NSString* city;
+@property (nonatomic, strong) NSString* city;
 ///该城市所含搜索结果数目
 @property (nonatomic) int num;
 
@@ -51,17 +51,17 @@ enum {
 	CLLocationCoordinate2D _pt;	///<POI坐标
 }
 ///POI名称
-@property (nonatomic, retain) NSString* name;
+@property (nonatomic, strong) NSString* name;
 ///POIuid
-@property (nonatomic, retain) NSString* uid;
+@property (nonatomic, strong) NSString* uid;
 ///POI地址
-@property (nonatomic, retain) NSString* address;
+@property (nonatomic, strong) NSString* address;
 ///POI所在城市
-@property (nonatomic, retain) NSString* city;
+@property (nonatomic, strong) NSString* city;
 ///POI电话号码
-@property (nonatomic, retain) NSString* phone;
+@property (nonatomic, strong) NSString* phone;
 ///POI邮编
-@property (nonatomic, retain) NSString* postcode;
+@property (nonatomic, strong) NSString* postcode;
 ///POI类型，0:普通点 1:公交站 2:公交线路 3:地铁站 4:地铁线路
 @property (nonatomic) int epoitype;
 ///POI坐标
@@ -90,9 +90,9 @@ enum {
 ///当前页的索引
 @property (nonatomic) int pageIndex;
 ///POI列表，成员是BMKPoiInfo
-@property (nonatomic, retain) NSArray* poiInfoList;
+@property (nonatomic, strong) NSArray* poiInfoList;
 ///城市列表，成员是BMKCityListInfo
-@property (nonatomic, retain) NSArray* cityList;		
+@property (nonatomic, strong) NSArray* cityList;		
 
 @end
 
@@ -122,19 +122,19 @@ enum {
     NSString* _shopHours;
 }
 ///POI名称
-@property (nonatomic, retain) NSString* name;
+@property (nonatomic, strong) NSString* name;
 ///POI地址
-@property (nonatomic, retain) NSString* address;
+@property (nonatomic, strong) NSString* address;
 ///POI电话号码
-@property (nonatomic, retain) NSString* phone;
+@property (nonatomic, strong) NSString* phone;
 ///POIuid
-@property (nonatomic, retain) NSString* uid;
+@property (nonatomic, strong) NSString* uid;
 ///POI标签
-@property (nonatomic, retain) NSString* tag;
+@property (nonatomic, strong) NSString* tag;
 ///POI详情页url
-@property (nonatomic, retain) NSString* detailUrl;
+@property (nonatomic, strong) NSString* detailUrl;
 ///POI所属分类，如“hotel”，“cater”，“life”
-@property (nonatomic, retain) NSString* type;
+@property (nonatomic, strong) NSString* type;
 ///POI地理坐标
 @property (nonatomic) CLLocationCoordinate2D pt;
 ///POI价格
@@ -164,7 +164,7 @@ enum {
 ///POI签到数目
 @property (nonatomic) int checkInNum;
 ///POI营业时间
-@property (nonatomic, retain) NSString* shopHours;
+@property (nonatomic, strong) NSString* shopHours;
 @end
 
 

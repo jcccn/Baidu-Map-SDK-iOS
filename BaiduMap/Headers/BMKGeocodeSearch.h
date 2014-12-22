@@ -14,7 +14,7 @@
 ///geo搜索服务
 @interface BMKGeoCodeSearch : NSObject
 /// 检索模块的Delegate，此处记得不用的时候需要置nil，否则影响内存的释放
-@property (nonatomic, retain) id<BMKGeoCodeSearchDelegate> delegate;
+@property (nonatomic, weak) id<BMKGeoCodeSearchDelegate> delegate;
 
 /**
  *根据地址名称获取地理信息

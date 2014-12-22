@@ -20,7 +20,7 @@
 ///点击地图标注返回数据结构
 @interface BMKMapPoi : NSObject
 ///点标注的名称
-@property (nonatomic,retain) NSString* text;
+@property (nonatomic,strong) NSString* text;
 ///点标注的经纬度坐标
 @property (nonatomic,assign) CLLocationCoordinate2D pt;
 @end
@@ -36,9 +36,9 @@ typedef enum {
 @interface BMKMapView : UIView
 
 /// 地图View的Delegate，此处记得不用的时候需要置nil，否则影响内存的释放
-@property (nonatomic, retain) id<BMKMapViewDelegate> delegate;
+@property (nonatomic, weak) id<BMKMapViewDelegate> delegate;
 
-/// 当前地图类型，可设定为标准地图、实时路况、卫星地图、同时打开实时路况和卫星地图模式
+/// 当前地图类型，可设定为标准地图、卫星地图
 @property (nonatomic) BMKMapType mapType;
 
 /// 当前地图的经纬度范围，设定的该范围可能会被调整为适合地图窗口显示的范围
@@ -64,6 +64,12 @@ typedef enum {
 
 /// 地图俯视角度，在手机上当前可使用的范围为－45～0度
 @property (nonatomic) int overlooking;
+///设定地图是否现实3D楼块效果
+@property(nonatomic, getter=isBuildingsEnabled) BOOL buildingsEnabled;
+///设定地图是否打开路况图层
+@property(nonatomic, getter=isTrafficEnabled) BOOL trafficEnabled;
+///设定地图是否打开百度城市热力图图层（百度自有数据）,注：地图层级大于11时，可显示热力图
+@property(nonatomic, getter=isBaiduHeatMapEnabled) BOOL baiduHeatMapEnabled;
 
 ///设定地图View能否支持用户多点缩放(双指)
 @property(nonatomic, getter=isZoomEnabled) BOOL zoomEnabled;
@@ -88,7 +94,14 @@ typedef enum {
 
 ///设定地图View能否支持以手势中心点为轴进行旋转和缩放
 @property(nonatomic, getter=isChangeWithTouchPointCenterEnabled) BOOL ChangeWithTouchPointCenterEnabled;
-
+/**
+ *当应用即将后台时调用，停止一切调用opengl相关的操作。
+ */
++(void)willBackGround;
+/**
+ *当应用恢复前台状态时调用。
+ */
++(void)didForeGround;
 /**
  *当mapview即将被显式的时候调用，恢复之前存储的mapview状态。
  */
@@ -250,6 +263,12 @@ typedef enum {
  */
 - (void)setMapStatus:(BMKMapStatus*)mapStatus withAnimation:(BOOL)bAnimation withAnimationTime:(int)ulDuration;
 
+/**
+ *	判断当前图区是否支持百度热力图（百度自有数据）
+ *  @return 支持返回YES，否则返回NO
+ */
+- (BOOL)isSurpportBaiduHeatMap;
+
 @end
 
 @interface BMKMapView (LocationViewAPI)
@@ -339,6 +358,13 @@ typedef enum {
  */
 - (void)deselectAnnotation:(id <BMKAnnotation>)annotation animated:(BOOL)animated;
 
+/**
+ *设置地图使显示区域显示所有annotations
+ *@param annotation 指定的标注
+ *@param animated 是否启动动画
+ */
+- (void)showAnnotations:(NSArray *)annotations animated:(BOOL)animated;
+
 @end
 ///地图View类(和Overlay操作相关的接口)
 @interface BMKMapView (OverlaysAPI)
@@ -425,6 +451,19 @@ typedef enum {
 /// MapView的Delegate，mapView通过此类来通知用户对应的事件
 @protocol BMKMapViewDelegate <NSObject>
 @optional
+
+/**
+ *地图初始化完毕时会调用此接口
+ *@param mapview 地图View
+ */
+- (void)mapViewDidFinishLoading:(BMKMapView *)mapView;
+
+/**
+ *地图渲染每一帧画面过程中，以及每次需要重绘地图时（例如添加覆盖物）都会调用此接口
+ *@param mapview 地图View
+ *@param status 此时地图的状态
+ */
+- (void)mapView:(BMKMapView *)mapView onDrawMapFrame:(BMKMapStatus*)status;
 
 /**
  *地图区域即将改变时会调用此接口

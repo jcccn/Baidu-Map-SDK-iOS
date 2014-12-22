@@ -13,9 +13,9 @@
     NSString        *_busLineUid;
 }
 ///城市名
-@property (nonatomic, retain) NSString *city;
+@property (nonatomic, strong) NSString *city;
 ///公交线路的uid
-@property (nonatomic, retain) NSString *busLineUid;
+@property (nonatomic, strong) NSString *busLineUid;
 
 @end
 

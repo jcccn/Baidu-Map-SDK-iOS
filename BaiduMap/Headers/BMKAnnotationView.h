@@ -50,7 +50,7 @@ typedef NSUInteger BMKAnnotationViewDragState;
 ///复用标志
 @property (nonatomic, readonly) NSString *reuseIdentifier;
 ///paopaoView
-@property (nonatomic, retain)BMKActionPaopaoView* paopaoView;
+@property (nonatomic, strong)BMKActionPaopaoView* paopaoView;
 
 /**
  *当view从reuse队列里取出时被调用
@@ -59,10 +59,10 @@ typedef NSUInteger BMKAnnotationViewDragState;
 - (void)prepareForReuse;
 
 ///关联的annotation
-@property (nonatomic, retain) id <BMKAnnotation> annotation;
+@property (nonatomic, strong) id <BMKAnnotation> annotation;
 
 ///annotation view显示的图像
-@property (nonatomic, retain) UIImage *image;
+@property (nonatomic, strong) UIImage *image;
 
 ///默认情况下, annotation view的中心位于annotation的坐标位置，可以设置centerOffset改变view的位置，正的偏移使view朝右下方移动，负的朝左上方，单位是像素
 @property (nonatomic) CGPoint centerOffset;
@@ -91,10 +91,10 @@ typedef NSUInteger BMKAnnotationViewDragState;
 @property (nonatomic) BOOL canShowCallout;
 
 ///显示在气泡左侧的view
-@property (retain, nonatomic) UIView *leftCalloutAccessoryView;
+@property (strong, nonatomic) UIView *leftCalloutAccessoryView;
 
 ///显示在气泡右侧的view
-@property (retain, nonatomic) UIView *rightCalloutAccessoryView;
+@property (strong, nonatomic) UIView *rightCalloutAccessoryView;
 
 ///当设为YES并实现了setCoordinate:方法时，支持将view在地图上拖动, ios 3.2以后支持
 @property (nonatomic, getter=isDraggable) BOOL draggable __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_3_2);

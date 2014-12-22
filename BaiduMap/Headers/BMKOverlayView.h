@@ -12,12 +12,14 @@
 @interface BMKOverlayView : UIView
 {
 @package
+    
+    
     id <BMKOverlay> _overlay;
     BMKMapRect _boundingMapRect;
     CGAffineTransform _mapTransform;
     id _geometryDelegate;
     id _canDrawCache;
-    
+    BOOL keepScale;
     CFTimeInterval _lastTile;
     CFRunLoopTimerRef _scheduledScaleTimer;
     
@@ -104,7 +106,26 @@
  @param looped 是否闭合, 如polyline会设置NO, polygon会设置YES.
  */
 - (void)renderLinesWithPoints:(BMKMapPoint *)points pointCount:(NSUInteger)pointCount strokeColor:(UIColor *)strokeColor lineWidth:(CGFloat)lineWidth looped:(BOOL)looped;
+/**
+ *使用OpenGLES 绘制线
+ @param points 直角坐标点
+ @param pointCount 点个数
+ @param strokeColor 线颜色
+ @param lineWidth OpenGLES支持线宽尺寸
+ @param looped 是否闭合, 如polyline会设置NO, polygon会设置YES.
+ @param lineDash 是否虚线样式
+ */
+- (void)renderLinesWithPoints:(BMKMapPoint *)points pointCount:(NSUInteger)pointCount strokeColor:(UIColor *)strokeColor lineWidth:(CGFloat)lineWidth looped:(BOOL)looped lineDash:(BOOL)lineDash;
 
+/**
+ *使用OpenGLES 按指定纹理绘制线
+ @param points 直角坐标点
+ @param pointCount 点个数
+ @param lineWidth OpenGLES支持线宽尺寸
+ @param textureID 纹理ID,使用- (void)loadStrokeTextureImage:(UIImage *)textureImage;加载
+ @param looped 是否闭合, 如polyline会设置NO, polygon会设置YES.
+ */
+- (void)renderTexturedLinesWithPoints:(BMKMapPoint *)points pointCount:(NSUInteger)pointCount lineWidth:(CGFloat)lineWidth textureID:(GLuint)textureID looped:(BOOL)looped;
 /**
  *使用OpenGLES 绘制区域
  @param points 直角坐标点
@@ -126,6 +147,16 @@
  *绘制函数(子类需要重载来实现)
  */
 - (void)glRender;
+
+///关联的纹理对象ID
+@property (nonatomic, readonly) GLuint strokeTextureID;
+
+/**
+ *加载纹理图片
+ @param textureImage 图片对象，opengl要求图片宽高必须是2的n次幂，如果图片对象为nil，则清空原有纹理
+ @return openGL纹理ID, 若纹理加载失败返回0
+ */
+- (GLuint)loadStrokeTextureImage:(UIImage *)textureImage;
 
 @end
 

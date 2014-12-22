@@ -21,15 +21,15 @@
 }
 
 /// 街道号码
-@property (nonatomic, retain) NSString* streetNumber;
+@property (nonatomic, strong) NSString* streetNumber;
 /// 街道名称
-@property (nonatomic, retain) NSString* streetName;
+@property (nonatomic, strong) NSString* streetName;
 /// 区县名称
-@property (nonatomic, retain) NSString* district;
+@property (nonatomic, strong) NSString* district;
 /// 城市名称
-@property (nonatomic, retain) NSString* city;
+@property (nonatomic, strong) NSString* city;
 /// 省份名称
-@property (nonatomic, retain) NSString* province;
+@property (nonatomic, strong) NSString* province;
 
 @end
 
@@ -44,13 +44,13 @@
 	NSArray* _poiList;
 }
 ///层次化地址信息
-@property (nonatomic, retain) BMKAddressComponent* addressDetail;
+@property (nonatomic, strong) BMKAddressComponent* addressDetail;
 ///地址名称
-@property (nonatomic, retain) NSString* address;
+@property (nonatomic, strong) NSString* address;
 ///地址坐标
 @property (nonatomic) CLLocationCoordinate2D location;
 ///地址周边POI信息，成员类型为BMKPoiInfo
-@property (nonatomic, retain) NSArray* poiList;
+@property (nonatomic, strong) NSArray* poiList;
 
 @end
 
@@ -63,7 +63,7 @@
 ///地理编码位置
 @property (nonatomic) CLLocationCoordinate2D location;
 ///地理编码地址
-@property (nonatomic,retain) NSString* address;
+@property (nonatomic,strong) NSString* address;
 
 @end
 

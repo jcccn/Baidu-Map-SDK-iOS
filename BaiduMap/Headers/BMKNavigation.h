@@ -24,15 +24,15 @@ typedef enum
     NSString* _appName;
 }
 ///起点
-@property (nonatomic, retain) BMKPlanNode* startPoint;
+@property (nonatomic, strong) BMKPlanNode* startPoint;
 ///终点
-@property (nonatomic, retain) BMKPlanNode* endPoint;
+@property (nonatomic, strong) BMKPlanNode* endPoint;
 ///导航类型
 @property (nonatomic, assign) BMK_NAVI_TYPE naviType;
 ///应用返回scheme
-@property (nonatomic, retain) NSString* appScheme;
+@property (nonatomic, strong) NSString* appScheme;
 ///应用名称
-@property (nonatomic, retain) NSString* appName;
+@property (nonatomic, strong) NSString* appName;
 
 
 @end

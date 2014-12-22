@@ -36,11 +36,11 @@
 ///设置热力图点半径，默认为12ps
 @property (nonatomic, assign) int mRadius;
 ///设置热力图渐变，有默认值 DEFAULT_GRADIENT
-@property (nonatomic, retain) BMKGradient* mGradient;
+@property (nonatomic, strong) BMKGradient* mGradient;
 ///设置热力图层透明度，默认 0.6
 @property (nonatomic, assign) double mOpacity;
 ///用户传入的热力图数据,数组,成员类型为BMKHeatMapNode
-@property (nonatomic, retain) NSMutableArray* mData;
+@property (nonatomic, strong) NSMutableArray* mData;
 
 @end
 

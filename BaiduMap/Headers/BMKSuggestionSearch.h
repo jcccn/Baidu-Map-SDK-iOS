@@ -17,18 +17,18 @@
     NSArray* _districtList;
 }
 ///key列表，成员是NSString
-@property (nonatomic, retain) NSArray* keyList;
+@property (nonatomic, strong) NSArray* keyList;
 ///city列表，成员是NSString
-@property (nonatomic, retain) NSArray* cityList;
+@property (nonatomic, strong) NSArray* cityList;
 ///district列表，成员是NSString
-@property (nonatomic, retain) NSArray* districtList;
+@property (nonatomic, strong) NSArray* districtList;
 @end
 
 @protocol BMKSuggestionSearchDelegate;
 ///sug搜索服务
 @interface BMKSuggestionSearch : NSObject
 /// 检索模块的Delegate，此处记得不用的时候需要置nil，否则影响内存的释放
-@property (nonatomic, retain) id<BMKSuggestionSearchDelegate> delegate;
+@property (nonatomic, weak) id<BMKSuggestionSearchDelegate> delegate;
 
 /**
  *搜索建议检索

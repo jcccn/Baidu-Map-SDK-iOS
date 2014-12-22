@@ -24,7 +24,7 @@ enum BMKCloudSearchType
 ///云检索服务
 @interface BMKCloudSearch : NSObject
 /// 检索模块的Delegate，此处记得不用的时候需要置nil，否则影响内存的释放
-@property (nonatomic, retain) id<BMKCloudSearchDelegate> delegate;
+@property (nonatomic, weak) id<BMKCloudSearchDelegate> delegate;
 /**
  *本地云检索
  *异步函数，返回结果在BMKCloudSearchDelegate的onGetCloudPoiResult通知
