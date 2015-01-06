@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/jcccn/Baidu-Map-SDK-iOS.git', :tag => '2.6.0' }
   s.platform     = :ios, '4.3'
   s.frameworks   = "UIKit", "CoreLocation", "QuartzCore", "OpenGLES", "SystemConfiguration", "CoreGraphics", "Security"
+  s.libraries    = 'stdc++'
 
   s.requires_arc = true
 
