@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'BaiduMap'
-  s.version  = '2.7.0'
+  s.version  = '2.8.0'
   s.summary  = 'The iOS SDK for Baidu Map.'
   s.homepage = 'https://github.com/jcccn/Baidu-Map-SDK-iOS'
   s.author   = { 'Chuncheng Jiang' => 'jccuestc@gmail.com' }
@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
                    ©2015 Baidu
                  LICENSE
                }
-  s.source   = { :git => 'https://github.com/jcccn/Baidu-Map-SDK-iOS.git', :tag => '2.7.0' }
-  s.platform     = :ios, '4.3'
+  s.source   = { :git => 'https://github.com/jcccn/Baidu-Map-SDK-iOS.git', :tag => '2.8.0' }
+  s.platform     = :ios, '5.0'
   s.frameworks   = "UIKit", "CoreLocation", "QuartzCore", "OpenGLES", "SystemConfiguration", "CoreGraphics", "Security"
   s.libraries    = 'stdc++'
   s.xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
@@ -54,6 +54,12 @@ Pod::Spec.new do |s|
   s.subspec 'Utils' do |utilss|
     utilss.requires_arc = true
     utilss.vendored_frameworks = 'BaiduMap/Frameworks/BaiduMapAPIUtils.framework'
+  end
+
+  # 周边雷达（位置信息上传和检索周边相同应用的用户位置信息功能）
+  s.subspec 'Radar' do |radars|
+    radars.requires_arc = true
+    radars.vendored_frameworks = 'BaiduMap/Frameworks/BaiduMapAPIRadar.framework'
   end
 
 end
