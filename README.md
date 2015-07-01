@@ -13,6 +13,42 @@ Baidu-Map-SDK-iOS
 
 在您使用百度地图iOS SDK之前，请先阅读 [百度地图API使用条款](http://developer.baidu.com/map/index.php?title=open/law) 。
 
+### 使用 CocoaPods 安装
+[CocoaPods](http://cocoapods.org) 是开发 OS X 和 iOS 应用程序的一个第三方库的依赖管理工具。
+
+推荐这样配置 Podfile:
+
+```ruby
+# The front repo is prior if conflicted
+# CocoaPods private repo
+source 'https://github.com/jcccn/PodSpecs.git'
+# CocoaPods master repo
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios,'7.0'
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+pod 'BaiduMap'
+
+```
+
+也可以这样配置Podfile:
+
+```ruby
+# CocoaPods master repo
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios,'7.0'
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+pod 'BaiduMap', :git => 'https://github.com/jcccn/Baidu-Map-SDK-iOS.git'
+
+```
+
 ### 功能介绍
 1. 地图：提供地图展示和地图操作功能
 	- 地图展示包括：普通地图（2D，3D）、卫星图和实时交通图；
