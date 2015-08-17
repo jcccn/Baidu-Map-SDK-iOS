@@ -459,7 +459,7 @@
  --------------------
  v2.8.0
 
- 注：百度地图iOS SDK向广大开发者提供了配置更简单的 .framework形式的开发包，请开发者选择此种类型的开发包使用。自下个版本起，百度地图iOS SDK将不再提供 .a形式的开发包。
+ 注：百度地图iOS SDK向广大开发者提供了配置更简单的 .framework形式的开发包，请开发者选择此种类型的开发包使用。
  
  【 新  增 】
  	 周边雷达
@@ -546,6 +546,28 @@
 4、修复定位结果海拔始终为0的问题；
 5、修复反地理编码检索在特定情况下，收不到回调的问题；
 
+ 
+ --------------------
+ v2.8.1
+ 
+ 注：百度地图iOS SDK向广大开发者提供了配置更简单的 .framework形式的开发包，请开发者选择此种类型的开发包使用。自V2.8.1后，百度地图iOS SDK将不再提供 .a形式的开发包。
+ 
+ 【 修  复 】
+ 修复了升级IOS 9 beta 3系统后闪退的问题
+ 
+ 【 提  示 】
+ 1、由于iOS9改用更安全的https，为了能够在iOS9中正常使用地图SDK，请在"Info.plist"中进行如下配置，否则影响SDK的使用。
+ <key>NSAppTransportSecurity</key>
+ <dict>
+ <key>NSAllowsArbitraryLoads</key>
+ <true/>
+ </dict>
+ 2、如果在iOS9中使用了调起百度地图客户端功能，必须在"Info.plist"中进行如下配置，否则不能调起百度地图客户端。
+ <key>LSApplicationQueriesSchemes</key>
+ <array>
+ <string>baidumap</string>
+ </array>
+
 
  *********************/
 /**
@@ -555,5 +577,5 @@
 
 UIKIT_STATIC_INLINE NSString* BMKGetMapApiVersion()
 {
-	return @"2.8.0";
+	return @"2.8.1";
 }
